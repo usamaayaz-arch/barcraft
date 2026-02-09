@@ -1,0 +1,59 @@
+{% render 'barcraft-collection-grid', blocks: section.blocks , settings:section.settings %}
+
+{% schema %}
+{
+  "name": "Barcraft Collection Grid",
+  "settings": [
+    
+        {
+          "type": "richtext",
+          "id": "section_title",
+          "label": "Collection Title"
+        },
+        {
+          "type": "text",
+          "id": "section_subtitle",
+          "label": "Collection Sub Title"
+        },
+        {
+          "type": "text",
+          "id": "section_button_title",
+          "label": "Button Title",
+          "default":"CLICK ME"
+        },
+        {
+          "type": "url",
+          "id": "section_button_url",
+          "label": "Button link url"
+        },
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "grid_image",
+          "label": "Grid Image"
+        },
+        {
+          "type": "url",
+          "id": "collection_url",
+          "label": "Collection URL"
+        },
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barcraft Collection Grid"
+    }
+  ]
+}
+{% endschema %}

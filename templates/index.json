@@ -1,1 +1,491 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Elevate Your Living Space","heading_size":"h0"}},"text_Cjg3Jj":{"type":"text","settings":{"text":"Your premier destination for a thoughtfully curated selection of home bar and dining room furniture","text_style":"body"}},"button":{"type":"buttons","settings":{"button_label_1":"Shop all","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading","text_Cjg3Jj","button"],"settings":{"image":"shopify:\/\/shop_images\/image_3_696c35b5-5b64-48cb-bdd9-95c1ac210941.png","image_2":"shopify:\/\/shop_images\/image_2_f0da52a9-1215-4255-8a01-2e3d7034b75f.png","image_overlay_opacity":40,"image_height":"large","image_behavior":"none","desktop_content_position":"middle-center","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-3","stack_images_on_mobile":false,"mobile_content_alignment":"center","show_text_below":false}},"featured_collection_kJLNqn":{"type":"featured-collection","custom_css":[".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}"],"name":"t:sections.featured-collection.presets.name","settings":{"collection":"console-cabinets-tables","products_to_show":4,"title":"Our Best Sellers","heading_size":"h1","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"show_view_all_label":"Shop Bestsellers","show_view_all_vertical_alignment":"top","view_all_style":"solid","color_scheme":"","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":true,"quick_add":"custom_quick_add","columns_mobile":"2","swipe_on_mobile":false,"padding_top":0,"padding_bottom":36}},"barcraft_collection_grid_hwjqaw":{"type":"barcraft-collection-grid","blocks":{"collection_item_VMw7Ee":{"type":"collection_item","settings":{"grid_image":"shopify:\/\/shop_images\/image_1_a97511ce-c8f1-4130-a393-88151e1c41fd.png","collection_url":"shopify:\/\/collections\/home-bar","collection_title":"Home Bar"}},"collection_item_RVbF3R":{"type":"collection_item","settings":{"grid_image":"shopify:\/\/shop_images\/image_3.png","collection_url":"shopify:\/\/collections\/console-cabinets-tables","collection_title":"Console Cabinets & Tables"}},"collection_item_CEU8nr":{"type":"collection_item","settings":{"grid_image":"shopify:\/\/shop_images\/image_6.png","collection_url":"shopify:\/\/collections\/dining-room","collection_title":"Dining Room"}},"collection_item_WCBVjN":{"type":"collection_item","settings":{"grid_image":"shopify:\/\/shop_images\/image_2.png","collection_url":"shopify:\/\/collections\/carts-accessories","collection_title":"Carts & Accessories"}}},"block_order":["collection_item_VMw7Ee","collection_item_RVbF3R","collection_item_CEU8nr","collection_item_WCBVjN"],"name":"Barcraft Collection Grid","settings":{"section_title":"<h1>Shop Category<\/h1>","section_subtitle":"Shop by Category","section_button_title":"Shop Categories","section_button_url":"shopify:\/\/collections\/console-cabinets-tables"}},"image_with_text_dJeyaz":{"type":"image-with-text","blocks":{"caption_FHp7AD":{"type":"caption","settings":{"caption":"Lookbook","text_style":"subtitle","text_size":"small"}},"heading_V7Cpwr":{"type":"heading","settings":{"heading":"Curated Comforts: Our Exclusive Furniture Lookbook","heading_size":"h1"}},"text_tgypXe":{"type":"text","settings":{"text":"<p>Explore a stunning compilation of the finest furniture arrangements,each piece handpicked to transform your interior.<\/p>","text_style":"body"}},"button_6HgMKn":{"type":"button","settings":{"button_label":"Explore Lookbook","button_link":"shopify:\/\/collections\/all","button_style_secondary":false}}},"block_order":["caption_FHp7AD","heading_V7Cpwr","text_tgypXe","button_6HgMKn"],"custom_css":[".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 1rem;}",".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}"],"name":"t:sections.image-with-text.presets.name","settings":{"image":"shopify:\/\/shop_images\/image_7.png","height":"adapt","desktop_image_width":"medium","layout":"text_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"scheme-dd817d71-c054-4afc-a6ae-39b8dae1de9a","color_scheme":"scheme-dd817d71-c054-4afc-a6ae-39b8dae1de9a","padding_top":100,"padding_bottom":100}},"featured_collection_wbeeXj":{"type":"featured-collection","custom_css":[".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}"],"name":"t:sections.featured-collection.presets.name","settings":{"collection":"sale-archive","products_to_show":4,"title":"Sale Archive","heading_size":"h1","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"show_view_all_label":"Shop Sale","show_view_all_vertical_alignment":"top","view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"standard","columns_mobile":"2","swipe_on_mobile":false,"padding_top":0,"padding_bottom":36}},"image_banner_cqdY9z":{"type":"image-banner","blocks":{"text_4EXyYk":{"type":"text","settings":{"text":"Our Story","text_style":"body"}},"heading_Vxq7ir":{"type":"heading","settings":{"heading":"Crafting Comfort, Curating Style","heading_size":"h1"}},"buttons_4aaE9m":{"type":"buttons","settings":{"button_label_1":"Read About Us","button_link_1":"","button_style_secondary_1":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["text_4EXyYk","heading_Vxq7ir","buttons_4aaE9m"],"name":"t:sections.image-banner.presets.name","settings":{"watermark_image":"shopify:\/\/shop_images\/image_2_3481d4e4-d71f-47f1-94c1-38eb3802ddea.png","image":"shopify:\/\/shop_images\/1205_1.png","image_overlay_opacity":40,"image_height":"adapt","image_behavior":"none","desktop_content_position":"bottom-left","desktop_content_alignment":"left","show_text_box":false,"color_scheme":"scheme-3","stack_images_on_mobile":true,"mobile_content_alignment":"center","show_text_below":true}},"image_with_text_EYWqne":{"type":"image-with-text","blocks":{"heading_myfiJb":{"type":"heading","settings":{"heading":"Reach Out To Us","heading_size":"h1"}},"text_acyNWM":{"type":"text","settings":{"text":"<p>Need assistance or have questions? We're just a message away!<\/p>","text_style":"body"}},"button_DWa6pU":{"type":"button","settings":{"button_label":"Send An Email","button_link":"shopify:\/\/products\/lorem-ipsum-chair-name-copy-2","button_style_secondary":false}}},"block_order":["heading_myfiJb","text_acyNWM","button_DWa6pU"],"name":"t:sections.image-with-text.presets.name","settings":{"image":"shopify:\/\/shop_images\/image_18.png","height":"adapt","desktop_image_width":"small","layout":"text_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"scheme-1","color_scheme":"scheme-2","padding_top":36,"padding_bottom":36}},"collapsible_content_MAfD6R":{"type":"collapsible-content","blocks":{"collapsible_row_ipPNVq":{"type":"collapsible_row","settings":{"heading":"Do you offer a warranty on your products?","icon":"check_mark","row_content":"<p>Yes, we stand by the quality of our products. Most items come with a one-year warranty covering manufacturing defects.Please refer to the product page for specific warranty details.<\/p>","page":""}},"collapsible_row_C7nYK3":{"type":"collapsible_row","settings":{"heading":"Can I change the contents of my order?","icon":"check_mark","row_content":"","page":""}},"collapsible_row_FRe4KW":{"type":"collapsible_row","settings":{"heading":"How long will my order take to ship?","icon":"check_mark","row_content":"","page":""}},"collapsible_row_F7DyYx":{"type":"collapsible_row","settings":{"heading":"What if my order is lost or stolen?","icon":"check_mark","row_content":"","page":""}}},"block_order":["collapsible_row_ipPNVq","collapsible_row_C7nYK3","collapsible_row_FRe4KW","collapsible_row_F7DyYx"],"custom_css":["@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); }}",".icon.icon-accordion.icon-check-mark {display: none;}",".accordion__title {font-size: large;}",".svg-wrapper {display: none;}",".accordion__content {padding-left: 0;}",".accordion__content rte {margin-right: 2rem;}",".collapsible-content-wrapper-narrow {margin: 0 auto; padding-right: 5rem; padding-left: 5rem; max-width: 121rem;}"],"name":"t:sections.collapsible_content.presets.name","settings":{"caption":"","heading":"Frequently Asked Questions","heading_size":"h1","heading_alignment":"left","layout":"none","container_color_scheme":"","color_scheme":"","open_first_collapsible_row":true,"image_ratio":"adapt","desktop_layout":"image_second","padding_top":36,"padding_bottom":36}},"multicolumn_99GB8W":{"type":"multicolumn","blocks":{"column_Eb86rW":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Component_3.svg","title":"Premium Quality","text":"<p>Offering high-quality collections<\/p>","link_label":"","link":""}},"column_DMRLf8":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Component_3_1.svg","title":"30-Day Returns","text":"<p>30-day satisfaction guarantee<\/p>","link_label":"","link":""}},"column_RfAWYw":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Component_3_2.svg","title":"Free Shipping","text":"<p>Enjoy free shipping on all orders<\/p>","link_label":"","link":""}}},"block_order":["column_Eb86rW","column_DMRLf8","column_RfAWYw"],"custom_css":[".multicolumn-card__image {max-width: 2.5rem; max-height: 2.5rem; place-self: anchor-center;}",".multicolumn-card {background: unset;}",".media--transparent {width: 5rem; height: 5rem; background-color: #f4f4f4 !important; border-radius: 25px; padding-bottom: 0px !important;}",".multicolumn-card-spacing {padding-top: 0; justify-items: center;}",".inline-richtext {font-weight: 600;}",".multicolumn-card__info {padding: 2rem 2.5rem 0;}","li:not(:last-child) .multicolumn-card.content-container {border-right: 1px solid #e5e5e5;}"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"circle","button_label":"","button_link":"","columns_desktop":3,"column_alignment":"center","background_style":"primary","color_scheme":"","columns_mobile":"2","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}}},"order":["image_banner","featured_collection_kJLNqn","barcraft_collection_grid_hwjqaw","image_with_text_dJeyaz","featured_collection_wbeeXj","image_banner_cqdY9z","image_with_text_EYWqne","collapsible_content_MAfD6R","multicolumn_99GB8W"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Elevate Your Living Space",
+            "heading_size": "h0"
+          }
+        },
+        "text_Cjg3Jj": {
+          "type": "text",
+          "settings": {
+            "text": "Your premier destination for a thoughtfully curated selection of home bar and dining room furniture",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text_Cjg3Jj",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/image_3_696c35b5-5b64-48cb-bdd9-95c1ac210941.png",
+        "image_2": "shopify://shop_images/image_2_f0da52a9-1215-4255-8a01-2e3d7034b75f.png",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection_kJLNqn": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
+        ".title.inline-richtext.h1 {margin: auto;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "console-cabinets-tables",
+        "products_to_show": 4,
+        "title": "Our Best Sellers",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "show_view_all_label": "Shop Bestsellers",
+        "show_view_all_vertical_alignment": "top",
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "custom_quick_add",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "barcraft_collection_grid_hwjqaw": {
+      "type": "barcraft-collection-grid",
+      "blocks": {
+        "collection_item_VMw7Ee": {
+          "type": "collection_item",
+          "settings": {
+            "grid_image": "shopify://shop_images/image_1_a97511ce-c8f1-4130-a393-88151e1c41fd.png",
+            "collection_url": "shopify://collections/home-bar",
+            "collection_title": "Home Bar"
+          }
+        },
+        "collection_item_RVbF3R": {
+          "type": "collection_item",
+          "settings": {
+            "grid_image": "shopify://shop_images/image_3.png",
+            "collection_url": "shopify://collections/console-cabinets-tables",
+            "collection_title": "Console Cabinets & Tables"
+          }
+        },
+        "collection_item_CEU8nr": {
+          "type": "collection_item",
+          "settings": {
+            "grid_image": "shopify://shop_images/image_6.png",
+            "collection_url": "shopify://collections/dining-room",
+            "collection_title": "Dining Room"
+          }
+        },
+        "collection_item_WCBVjN": {
+          "type": "collection_item",
+          "settings": {
+            "grid_image": "shopify://shop_images/image_2.png",
+            "collection_url": "shopify://collections/carts-accessories",
+            "collection_title": "Carts & Accessories"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_VMw7Ee",
+        "collection_item_RVbF3R",
+        "collection_item_CEU8nr",
+        "collection_item_WCBVjN"
+      ],
+      "name": "Barcraft Collection Grid",
+      "settings": {
+        "section_title": "<h1>Shop Category</h1>",
+        "section_subtitle": "Shop by Category",
+        "section_button_title": "Shop Categories",
+        "section_button_url": "shopify://collections/console-cabinets-tables"
+      }
+    },
+    "image_with_text_dJeyaz": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_FHp7AD": {
+          "type": "caption",
+          "settings": {
+            "caption": "Lookbook",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "heading_V7Cpwr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Curated Comforts: Our Exclusive Furniture Lookbook",
+            "heading_size": "h1"
+          }
+        },
+        "text_tgypXe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore a stunning compilation of the finest furniture arrangements,each piece handpicked to transform your interior.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_6HgMKn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Lookbook",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_FHp7AD",
+        "heading_V7Cpwr",
+        "text_tgypXe",
+        "button_6HgMKn"
+      ],
+      "custom_css": [
+        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 1rem;}",
+        ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/image_7.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-dd817d71-c054-4afc-a6ae-39b8dae1de9a",
+        "color_scheme": "scheme-dd817d71-c054-4afc-a6ae-39b8dae1de9a",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "featured_collection_wbeeXj": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
+        ".title.inline-richtext.h1 {margin: auto;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "sale-archive",
+        "products_to_show": 4,
+        "title": "Sale Archive",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "show_view_all_label": "Shop Sale",
+        "show_view_all_vertical_alignment": "top",
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "custom_quick_add",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_cqdY9z": {
+      "type": "image-banner",
+      "blocks": {
+        "text_4EXyYk": {
+          "type": "text",
+          "settings": {
+            "text": "Our Story",
+            "text_style": "body"
+          }
+        },
+        "heading_Vxq7ir": {
+          "type": "heading",
+          "settings": {
+            "heading": "Crafting Comfort, Curating Style",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_4aaE9m": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Read About Us",
+            "button_link_1": "shopify://products/lorem-ipsum-chair-name",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_4EXyYk",
+        "heading_Vxq7ir",
+        "buttons_4aaE9m"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "watermark_image": "shopify://shop_images/image_2_3481d4e4-d71f-47f1-94c1-38eb3802ddea.png",
+        "image": "shopify://shop_images/1205_1.png",
+        "image_overlay_opacity": 40,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "image_with_text_EYWqne": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_myfiJb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Reach Out To Us",
+            "heading_size": "h1"
+          }
+        },
+        "text_acyNWM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Need assistance or have questions? We're just a message away!</p>",
+            "text_style": "body"
+          }
+        },
+        "button_DWa6pU": {
+          "type": "button",
+          "settings": {
+            "button_label": "Send An Email",
+            "button_link": "shopify://products/lorem-ipsum-chair-name-copy-2",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_myfiJb",
+        "text_acyNWM",
+        "button_DWa6pU"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/image_18.png",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_MAfD6R": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_ipPNVq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer a warranty on your products?",
+            "icon": "check_mark",
+            "row_content": "<p>Yes, we stand by the quality of our products. Most items come with a one-year warranty covering manufacturing defects.Please refer to the product page for specific warranty details.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_C7nYK3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I change the contents of my order?",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_FRe4KW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long will my order take to ship?",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_F7DyYx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if my order is lost or stolen?",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_ipPNVq",
+        "collapsible_row_C7nYK3",
+        "collapsible_row_FRe4KW",
+        "collapsible_row_F7DyYx"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); }}",
+        ".icon.icon-accordion.icon-check-mark {display: none;}",
+        ".accordion__title {font-size: large;}",
+        ".svg-wrapper {display: none;}",
+        ".accordion__content {padding-left: 0;}",
+        ".accordion__content rte {margin-right: 2rem;}",
+        ".collapsible-content-wrapper-narrow {margin: 0 auto; padding-right: 5rem; padding-left: 5rem; max-width: 121rem;}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_99GB8W": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Eb86rW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Component_3.svg",
+            "title": "Premium Quality",
+            "text": "<p>Offering high-quality collections</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DMRLf8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Component_3_1.svg",
+            "title": "30-Day Returns",
+            "text": "<p>30-day satisfaction guarantee</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RfAWYw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Component_3_2.svg",
+            "title": "Free Shipping",
+            "text": "<p>Enjoy free shipping on all orders</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_Eb86rW",
+        "column_DMRLf8",
+        "column_RfAWYw"
+      ],
+      "custom_css": [
+        ".multicolumn-card__image {max-width: 2.5rem; max-height: 2.5rem; place-self: anchor-center;}",
+        ".multicolumn-card {background: unset;}",
+        ".media--transparent {width: 5rem; height: 5rem; background-color: #f4f4f4 !important; border-radius: 25px; padding-bottom: 0px !important;}",
+        ".multicolumn-card-spacing {padding-top: 0; justify-items: center;}",
+        ".inline-richtext {font-weight: 600;}",
+        ".multicolumn-card__info {padding: 2rem 2.5rem 0;}",
+        "li:not(:last-child) .multicolumn-card.content-container {border-right: 1px solid #e5e5e5;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_kJLNqn",
+    "barcraft_collection_grid_hwjqaw",
+    "image_with_text_dJeyaz",
+    "featured_collection_wbeeXj",
+    "image_banner_cqdY9z",
+    "image_with_text_EYWqne",
+    "collapsible_content_MAfD6R",
+    "multicolumn_99GB8W"
+  ]
+}

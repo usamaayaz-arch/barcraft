@@ -185,8 +185,10 @@
         "button_6HgMKn"
       ],
       "custom_css": [
-        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 1rem;}",
-        ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}"
+        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 0rem; max-width: 53rem;}",
+        ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}",
+        ".image-with-text__text--caption + .image-with-text__heading {font-size: 36px;}",
+        ".image-with-text__text.rte.body p{font-size: 16px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {

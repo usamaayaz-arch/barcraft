@@ -20,6 +20,7 @@
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
+
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
@@ -81,7 +82,7 @@
                 width="{{ card_product.featured_media.width }}"
                 height="{{ card_product.featured_media.height }}"
               >
-              {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+              {% comment %} theme-check-enable ImgLazyLoading {% endcomment %}
 
               {%- if card_product.media[1] != null and show_secondary_image -%}
                 <img
@@ -206,21 +207,31 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
             {% if quick_add == 'custom_quick_add' %}
-              <div class="product-variants-picker">
-                {% for option in card_product.options_with_values %}
-                  {% if option.name == 'Color' %}
-                    <div class="product-variant-color" style="display:flex; gap:0.5rem;">
-                      {% for value in option.values %}
-                        {% assign color = value.swatch.color | default: value | downcase %}
-                        <span class="variant-color" role="button" aria-label="{{ value }}" data-value="{{ value }}" style="--swatch-color: {{ color }};border: 1px solid #000;border-radius: 50%;height: 2.2rem;width: 2.2rem;background: #F4F4F4;display: inline-flex;align-items: center;justify-content: center;" >
-                          {{ 'circle_filled.svg' | inline_asset_content }}
-                        </span>
-                        <style>.product-variant-color .variant-color svg {fill: var(--swatch-color);}</style>
-                      {% endfor %}
-                    </div>
-                  {% endif %}
-                {% endfor %}
-              </div>
+              <script src="{{ 'barcraft-product-variant-selector.js' | asset_url }}" defer></script>
+              <barcraft-product-variant-selector data-product="{{ card_product | json | escape }}">
+                <div class="product-variants-picker">
+                  {% for option in card_product.options_with_values %}
+                    {% if option.name == 'Color' %}
+                      <div class="product-variant-color" style="display:flex; gap:0.5rem;">
+                        {% for value in option.values %}
+                          {% assign color = value.swatch.color | default: value | downcase %}
+                          <span
+                            data-product="{{ card_product | json | escape }}"
+                            data-value="{{ value }}"
+                            class="variant-color {% if value == card_product.selected_or_first_available_variant.option1 %}variant-color--active{% endif %}"
+                            role="button"
+                            aria-label="{{ value }}"
+                            data-value="{{ value }}"
+                            style="--swatch-color: {{ color }};border-radius: 50%;height: 2rem;width: 2rem;background: #F4F4F4;display: inline-flex;align-items: center;justify-content: center;"
+                          >
+                            {{ 'circle_filled.svg' | inline_asset_content }}
+                          </span>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </barcraft-product-variant-selector>
             {% endif %}
 
             {%- if card_product.quantity_price_breaks_configured? -%}
@@ -566,8 +577,23 @@
             </div>
           {% endif %}
         {% elsif quick_add == 'custom_quick_add' %}
-          <div class="quick_add_popper">Quick View</div>
+          <div 
+            data-variant="{{ card_product.selected_or_first_available_variant | json | escape }}"
+            data-product="{{ card_product | json | escape }}" data-product-id="{{ card_product.id }}"
+            class="quick_add_popper" >
+            Quick View
+          </div>
+          <script>
+            document.querySelectorAll('.quick_add_popper').forEach((button) => {
+              button.addEventListener('click', () => {
+                const product = JSON.parse(button.dataset.product);
+                const variant = button.dataset.variant ? JSON.parse(button.dataset.variant) : null;
+                document.getElementById('productQuickView').show(product, variant);
+              });
+            });
+          </script>
         {% endif %}
+
         <div class="card__badge {{ settings.badge_position }}">
           {%- if card_product.available == false -%}
             <span
@@ -644,25 +670,40 @@
 {%- endif -%}
 
 <style>
-    .card--standard.card--media:hover .card__content .quick_add_popper {
-      display:unset;
-    }
-    .quick_add_popper:hover {
-      text-decoration: underline;
-      text-underline-position: under;
-    }
-    .quick_add_popper {
-      background: #7E7564;
-      padding: 1.5rem;
-      position: absolute;
-      width: calc(100% - 1rem);
-      justify-self: center;
-      text-align: center;
-      color:#F9F9F9;
-      bottom:12rem;
-      z-index: 1;
-      cursor:pointer;
-      border-radius:4px;
-      display:none;
+  .card--standard.card--media:hover .card__content .quick_add_popper {
+    display: unset;
+  }
+  .quick_add_popper:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+  .quick_add_popper {
+    background: #7e7564;
+    padding: 1.5rem;
+    position: absolute;
+    width: calc(100% - 1rem);
+    justify-self: center;
+    text-align: center;
+    color: #f9f9f9;
+    bottom: 12rem;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 4px;
+    display: none;
+  }
+  .variant-color--active {
+    border: 1px solid #000;
+  }
+
+  .product-variant-color .variant-color svg {
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--swatch-color);
+  }
+
+  .variant-color svg,
+  .variant-color svg * {
+    pointer-events: none;
   }
 </style>

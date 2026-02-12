@@ -25,18 +25,17 @@
     {%- if section.settings.show_social and social_icons -%}
       {%- render 'social-icons' -%}
     {%- endif -%}
-{% assign announcement_count = 0 %}
-{% assign first_announcement = nil %}
+    {% assign announcement_count = 0 %}
+    {% assign first_announcement = null %}
 
-{% for block in section.blocks %}
-  {% if block.type == 'announcement' %}
-    {% assign announcement_count = announcement_count | plus: 1 %}
-    {% if first_announcement == nil %}
-      {% assign first_announcement = block %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
-
+    {% for block in section.blocks %}
+      {% if block.type == 'announcement' %}
+        {% assign announcement_count = announcement_count | plus: 1 %}
+        {% if first_announcement == null %}
+          {% assign first_announcement = block %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
 
     {%- if announcement_count == 1 -%}
       <div
@@ -45,8 +44,6 @@
         aria-label="{{ 'sections.header.announcement' | t }}"
         {{ section.blocks.first.shopify_attributes }}
         {{ first_announcement.shopify_attributes }}
-
-        
       >
         {%- if first_announcement.settings.text != blank -%}
           {%- if section.blocks.first.settings.link != blank -%}
@@ -180,8 +177,30 @@
       {%- endif -%}
     </div>
     <style>
+      .page-width.utility-bar__grid.utility-bar__grid--3-col .list-unstyled.list-social .list-social__item:nth-child(1) .link.list-social__link{
+          padding: 0 0 0 1.8rem;
+        }
+      .page-width.utility-bar__grid.utility-bar__grid--3-col .list-unstyled.list-social .list-social__item:nth-child(2) .link.list-social__link{
+          padding: 0;
+        }
+      .page-width.utility-bar__grid.utility-bar__grid--3-col .list-unstyled.list-social .list-social__item .link.list-social__link .svg-wrapper svg{
+      width:1.5rem;height:1.5rem;
+      }
+      .url_links {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        color: white;
+        font-size: calc(var(--font-heading-scale) * 1.3rem);
+        gap: 12px;
+      }
+      .url_links .link {
+        cursor: pointer;
+        color: white;
+
+      }
       @media screen and (max-width: 990px) {
-        .url_link.link {
+        .url_links {
           display: none !important;
         }
       }
@@ -194,13 +213,10 @@
       }
     </style>
     {%- if section.settings.url_links_flag -%}
-      <div
-        class="url_link link"
-        style="display: flex;justify-content: flex-end;align-items: center;color: white;text-decoration: underline;text-underline-position: under;font-size: calc(var(--font-heading-scale) * 1.3rem);"
-      >
+      <div class="url_links">
         {%- for block in section.blocks -%}
           {%- if block.type == 'url_link' -%}
-            <a href="{{ block.settings.url_link }}" style="color: white;">{{ block.settings.url_link_label }}</a>
+            <a href="{{ block.settings.url_link }}" class="link" >{{ block.settings.url_link_label }}</a>
           {%- endif -%}
         {%- endfor -%}
       </div>

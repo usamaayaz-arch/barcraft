@@ -24,7 +24,19 @@
     assign show_currencies = true
   endif
 %}
-
+<style>
+  .disclosure__button.localization-form__select.localization-selector.link.link--text.caption-large {
+    background: #353535;
+    border: 1px solid #3e3e3e;
+    border-radius: 4px;
+  }
+  .disclosure__button.localization-form__select.localization-selector.link.link--text.caption-large::after {
+    content: none;
+  }
+  .disclosure__button.localization-form__select.localization-selector.link.link--text.caption-large::before {
+    content: none;
+  }
+</style>
 <div class="disclosure">
   <button
     type="button"
@@ -34,7 +46,7 @@
     aria-describedby="{{ localPosition }}Label"
   >
     <span>
-      {{- localization.country.name }} |
+      {% comment %} {{- localization.country.name }} | {% endcomment %}
       {{ localization.country.currency.iso_code }}
       {{ localization.country.currency.symbol -}}
     </span>
@@ -70,7 +82,7 @@
             {{- 'icon-reset.svg' | inline_asset_content -}}
           </button>
           <div class="country-filter__search-icon field__button motion-reduce">
-            {{- 'icon-search.svg' | inline_asset_content -}}
+            {{- 'search_icon.svg' | inline_asset_content -}}
           </div>
         </div>
       {% endif %}

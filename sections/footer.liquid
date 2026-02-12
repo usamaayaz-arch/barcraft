@@ -66,6 +66,103 @@
               data-cascade
             {% endif %}
           >
+            <div
+              style="margin-bottom:6rem"
+              class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+              {% endif %}
+            >
+              {%- if section.settings.newsletter_enable -%}
+                <div class="footer-block__newsletter">
+                  {%- if section.settings.newsletter_heading != blank -%}
+                    <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+                    <h5 class="footer-block__subheading" style="text-align: left;">{{ section.settings.newsletter_subheading }}</h5>
+                  {%- endif -%}
+                  {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <div class="newsletter-form__field-wrapper">
+                      <div class="field">
+                        <style>
+                          .newsletter-form__field-wrapper .field::before,
+                          .newsletter-form__field-wrapper .field::after {
+                            content: unset;
+                          }
+                        </style>
+                        <input
+                          style="border: 1px solid #3E3E3E;background: #353535;height: 5.5rem;border-radius: 4px;width: 100%;"
+                          id="NewsletterForm--{{ section.id }}"
+                          type="email"
+                          name="contact[email]"
+                          class="field__input"
+                          value="{{ form.email }}"
+                          aria-required="true"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          autocomplete="email"
+                          {% if form.errors %}
+                            autofocus
+                            aria-invalid="true"
+                            aria-describedby="ContactFooter-error"
+                          {% elsif form.posted_successfully? %}
+                            aria-describedby="ContactFooter-success"
+                          {% endif %}
+                          placeholder="{{ 'newsletter.label' | t | replace: 'Email', 'Your E-mail'}}"
+                          required
+                        >
+                        <label style="padding: .75rem;" class="field__label" for="NewsletterForm--{{ section.id }}">
+                          {{ 'newsletter.label' | t | replace: 'Email', 'Your E-mail' }}
+                        </label>
+                      </div>
+                      <button
+                        style="position: absolute;top: 6.25rem;width: 100%;padding: 12px 16px;background: #F9F9F9;color: black;border-radius: 4px;"
+                        type="submit"
+                        class="newsletter-form__button field__button"
+                        name="commit"
+                        id="Subscribe"
+                        aria-label="{{ 'newsletter.button_label' | t }}"
+                      >
+                        {{ 'Subscribe' }}
+                      </button>
+                      {%- if form.errors -%}
+                        <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                          <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                          </span>
+                          {{- form.errors.translated_fields.email | capitalize }}
+                          {{ form.errors.messages.email -}}
+                        </small>
+                      {%- endif -%}
+                    </div>
+                    {%- if form.posted_successfully? -%}
+                      <h3
+                        class="newsletter-form__message newsletter-form__message--success form__message"
+                        id="ContactFooter-success"
+                        tabindex="-1"
+                        autofocus
+                      >
+                        <span class="svg-wrapper">
+                          {{- 'icon-success.svg' | inline_asset_content -}}
+                        </span>
+                        {{- 'newsletter.success' | t }}
+                      </h3>
+                    {%- endif -%}
+                  {%- endform -%}
+                </div>
+              {%- endif -%}
+
+              {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+                <div class="footer__follow-on-shop">
+                  {{ shop | login_button: action: 'follow' }}
+                </div>
+              {%- endif -%}
+
+              {% comment %}
+                {%- if section.settings.show_social and has_social_icons -%}
+                  {%- render 'social-icons', class: 'footer__list-social' -%}
+                {%- endif -%}
+              {% endcomment %}
+            </div>
             {%- for block in section.blocks -%}
               <div
                 class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -159,93 +256,97 @@
           </div>
         {%- endif -%}
 
-        <div
-          class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
-        >
-          {%- if section.settings.newsletter_enable -%}
-            <div class="footer-block__newsletter">
-              {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
-              {%- endif -%}
-              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                <input type="hidden" name="contact[tags]" value="newsletter">
-                <div class="newsletter-form__field-wrapper">
-                  <div class="field">
-                    <input
-                      id="NewsletterForm--{{ section.id }}"
-                      type="email"
-                      name="contact[email]"
-                      class="field__input"
-                      value="{{ form.email }}"
-                      aria-required="true"
-                      autocorrect="off"
-                      autocapitalize="off"
-                      autocomplete="email"
-                      {% if form.errors %}
-                        autofocus
-                        aria-invalid="true"
-                        aria-describedby="ContactFooter-error"
-                      {% elsif form.posted_successfully? %}
-                        aria-describedby="ContactFooter-success"
-                      {% endif %}
-                      placeholder="{{ 'newsletter.label' | t }}"
-                      required
-                    >
-                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                      {{ 'newsletter.label' | t }}
-                    </label>
-                    <button
-                      type="submit"
-                      class="newsletter-form__button field__button"
-                      name="commit"
-                      id="Subscribe"
-                      aria-label="{{ 'newsletter.button_label' | t }}"
-                    >
-                      <span class="svg-wrapper">
-                        {{- 'icon-arrow.svg' | inline_asset_content -}}
-                      </span>
-                    </button>
-                  </div>
-                  {%- if form.errors -%}
-                    <small class="newsletter-form__message form__message" id="ContactFooter-error">
-                      <span class="svg-wrapper">
-                        {{- 'icon-error.svg' | inline_asset_content -}}
-                      </span>
-                      {{- form.errors.translated_fields.email | capitalize }}
-                      {{ form.errors.messages.email -}}
-                    </small>
-                  {%- endif -%}
-                </div>
-                {%- if form.posted_successfully? -%}
-                  <h3
-                    class="newsletter-form__message newsletter-form__message--success form__message"
-                    id="ContactFooter-success"
-                    tabindex="-1"
-                    autofocus
-                  >
-                    <span class="svg-wrapper">
-                      {{- 'icon-success.svg' | inline_asset_content -}}
-                    </span>
-                    {{- 'newsletter.success' | t }}
-                  </h3>
+        {% comment %}
+          <div
+            class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+            {% endif %}
+          >
+            {%- if section.settings.newsletter_enable -%}
+              <div class="footer-block__newsletter">
+                {%- if section.settings.newsletter_heading != blank -%}
+                  <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
                 {%- endif -%}
-              {%- endform -%}
-            </div>
-          {%- endif -%}
+                {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="newsletter-form__field-wrapper">
+                    <div class="field">
+                      <input
+                        id="NewsletterForm--{{ section.id }}"
+                        type="email"
+                        name="contact[email]"
+                        class="field__input"
+                        value="{{ form.email }}"
+                        aria-required="true"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        autocomplete="email"
+                        {% if form.errors %}
+                          autofocus
+                          aria-invalid="true"
+                          aria-describedby="ContactFooter-error"
+                        {% elsif form.posted_successfully? %}
+                          aria-describedby="ContactFooter-success"
+                        {% endif %}
+                        placeholder="{{ 'newsletter.label' | t }}"
+                        required
+                      >
+                      <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                        {{ 'newsletter.label' | t }}
+                      </label>
+                      <button
+                        type="submit"
+                        class="newsletter-form__button field__button"
+                        name="commit"
+                        id="Subscribe"
+                        aria-label="{{ 'newsletter.button_label' | t }}"
+                      >
+                        <span class="svg-wrapper">
+                          {{- 'icon-arrow.svg' | inline_asset_content -}}
+                        </span>
+                      </button>
+                    </div>
+                    {%- if form.errors -%}
+                      <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                        <span class="svg-wrapper">
+                          {{- 'icon-error.svg' | inline_asset_content -}}
+                        </span>
+                        {{- form.errors.translated_fields.email | capitalize }}
+                        {{ form.errors.messages.email -}}
+                      </small>
+                    {%- endif -%}
+                  </div>
+                  {%- if form.posted_successfully? -%}
+                    <h3
+                      class="newsletter-form__message newsletter-form__message--success form__message"
+                      id="ContactFooter-success"
+                      tabindex="-1"
+                      autofocus
+                    >
+                      <span class="svg-wrapper">
+                        {{- 'icon-success.svg' | inline_asset_content -}}
+                      </span>
+                      {{- 'newsletter.success' | t }}
+                    </h3>
+                  {%- endif -%}
+                {%- endform -%}
+              </div>
+            {%- endif -%}
 
-          {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-            <div class="footer__follow-on-shop">
-              {{ shop | login_button: action: 'follow' }}
-            </div>
-          {%- endif -%}
+            {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+              <div class="footer__follow-on-shop">
+                {{ shop | login_button: action: 'follow' }}
+              </div>
+            {%- endif -%}
 
-          {%- if section.settings.show_social and has_social_icons -%}
-            {%- render 'social-icons', class: 'footer__list-social' -%}
-          {%- endif -%}
-        </div>
+            {% comment %}
+              {%- if section.settings.show_social and has_social_icons -%}
+                {%- render 'social-icons', class: 'footer__list-social' -%}
+              {%- endif -%}
+            {% endcomment %}
+          </div>
+        {% endcomment %}
       </div>
     {%- endunless -%}
   {%- endif -%}
@@ -256,7 +357,7 @@
       data-cascade
     {% endif %}
   >
-    <div class="footer__content-bottom-wrapper page-width">
+    <div style="margin-bottom:3rem;" class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__localization isolate">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form>
@@ -285,7 +386,9 @@
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+            <span style="color: #F9F9F966;font: status-bar;" class="visually-hidden-visible">
+              {{- 'sections.footer.payment' | t | replace: 'methods', 'Available ' -}}
+            </span>
             <ul class="list list-payment" role="list">
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
@@ -296,13 +399,22 @@
           </div>
         {%- endif -%}
       </div>
+      <div class="footer__column footer__column--social">
+        <div style="color: #F9F9F966;font: status-bar;">Join Our Social Media</div>
+        {%- if section.settings.show_social and has_social_icons -%}
+          {%- render 'social-icons', class: 'footer__list-social' -%}
+        {%- endif -%}
+      </div>
     </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-      <div class="footer__copyright caption">
+    <div
+      style="border-top: 1px solid #3E3E3E;"
+      class="footer__content-bottom-wrapper{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}"
+    >
+      <div class="footer__copyright caption page-width">
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
         </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
+        {% comment %} <small class="copyright__content">{{ powered_by_link }}</small> {% endcomment %}
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">
             {%- for policy in shop.policies -%}
@@ -320,7 +432,187 @@
     </div>
   </div>
 </footer>
+<style>
+  .footer__localization {
+    height: fit-content;
+    width: fit-content;
+  }
 
+  .footer__column--info {
+    flex-wrap: nowrap;
+  }
+
+  .footer__column {
+    height: fit-content;
+    align-items: center;
+    align-self: center;
+    width: fit-content;
+  }
+
+  .footer__column.footer__column--social {
+    width: fit-content;
+    margin-left: 2rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .footer__list-social.list-social,
+    .footer__follow-on-shop,
+    .footer-block__newsletter {
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+
+  .footer__content-bottom-wrapper {
+    justify-content: space-between;
+  }
+
+  .footer__copyright.caption {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .list-payment__item svg {
+    width: 6rem;
+    height: 4rem;
+  }
+
+  .list-social__link {
+    padding: 12px 0 0 0.45rem;
+  }
+
+  .link.list-social__link .svg-wrapper svg {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .list-social {
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .list-payment {
+      justify-content: flex-start;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer__localization h2 {
+      margin: 1rem 0 0;
+      color: #f9f9f966;
+      font: status-bar;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .footer__column.footer__column--info {
+      margin-right: 0 !important;
+    }
+  }
+
+  .footer__payment {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .list-payment {
+    justify-content: flex-start;
+  }
+
+  .policies.list-unstyled li .copyright__content {
+    color: #f9f9f9;
+  }
+
+  .footer-block__newsletter .footer-block__heading.inline-richtext {
+    text-align: left;
+  }
+  .footer-block__heading.rte,
+  .footer-block__brand-info .rte p {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .footer__content-top.page-width
+    .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    {% comment %} justify-items: center; {% endcomment %}
+    justify-items: start;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .footer-block--newsletter.scroll-trigger.animate--slide-in,
+  .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in,
+  .footer-block.grid__item.scroll-trigger.animate--slide-in {
+    width: fit-content;
+    {% comment %} max-width: 100%; {% endcomment %}
+  }
+  .footer-block--newsletter.scroll-trigger.animate--slide-in {
+    width: 30rem;
+    max-width: 100%;
+  }
+  .footer-block.grid__item .scroll-trigger.animate--slide-in  {
+    width: 24rem;
+    max-width: 100%;
+  }
+
+  .footer-block.grid__item.scroll-trigger.animate--slide-in:nth-child(1) {
+    order: 3;
+    text-align: left;
+  }
+  .footer-block.grid__item.scroll-trigger.animate--slide-in:nth-child(2) {
+    order: 4;
+    text-align: left;
+  }
+
+  .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in {
+    order: 4;
+    text-align: left;
+  }
+
+  .footer-block--newsletter.scroll-trigger.animate--slide-in {
+    order: 5;
+    text-align: left;
+  }
+  .footer-block.grid__item.scroll-trigger.animate--slide-in {
+    order: 6;
+    text-align: left;
+  }
+
+  .footer-block__heading.inline-richtext {
+    width: fit-content;
+  }
+  .footer-block--newsletter.scroll-trigger.animate--slide-in {
+    margin-top: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .footer__content-top.page-width
+      .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer__content-top.page-width
+      .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .footer-block--newsletter.scroll-trigger.animate--slide-in {
+      order: 5;
+    }
+  }
+</style>
 {% schema %}
 {
   "name": "t:sections.footer.name",
@@ -446,6 +738,12 @@
       "id": "newsletter_heading",
       "default": "t:sections.footer.settings.newsletter_heading.default",
       "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_subheading",
+      "default": "t:sections.footer.settings.newsletter_subheading.default",
+      "label": "t:sections.footer.settings.newsletter_subheading.label"
     },
     {
       "type": "header",

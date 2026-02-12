@@ -1027,6 +1027,10 @@
           "label": "Heading",
           "default": "Subscribe to our emails"
         },
+        "newsletter_subheading": {
+          "label": "Subheading",
+          "default": "Get the latest updates and offers delivered straight to your inbox."
+        },
         "header__1": {
           "content": "Email signup",
           "info": "Signups add [customer profiles](https://help.shopify.com/manual/customers/manage-customers)"

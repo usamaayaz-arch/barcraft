@@ -66,9 +66,9 @@
       "custom_css": [
         ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before,.center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
         ".center.collection__view-all.scroll-trigger.animate--slide-in .button {}",
-        ".title.inline-richtext.h1 {margin: auto; font-size: clamp(20px, 5vw, 36px); letter-spacing: -1px;}",
+        ".title.inline-richtext.h1 {margin: auto; font-size: clamp(22px, 5vw, 36px); letter-spacing: -1px;}",
         ".full-unstyled-link {font-size: 16px;}",
-        ".price__regular .price-item--regular{font-size: 14px;}"
+        ".price__regular .price-item--regular {font-size: 14px;}"
       ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
@@ -140,6 +140,9 @@
         "collection_item_RVbF3R",
         "collection_item_CEU8nr",
         "collection_item_WCBVjN"
+      ],
+      "custom_css": [
+        "h1 {font-size: clamp(20px, 5vw, 36px);}"
       ],
       "name": "Barcraft Collection Grid",
       "settings": {
@@ -217,7 +220,7 @@
       "custom_css": [
         ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",
         ".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
-        ".title.inline-richtext.h1 {margin: auto;}"
+        ".title.inline-richtext.h1 {margin: auto; font-size: clamp(22px, 5vw, 36px);}"
       ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
@@ -332,7 +335,8 @@
       "custom_css": [
         ".image-with-text__media-item {width: auto;}",
         ".image-with-text__media {overflow: visible !important; border: unset; padding-right: 7rem !important; padding: unset; padding-bottom: unset !important;}",
-        ".image-with-text__media img {position: relative; z-index: 1; width: 24rem; transform: translateY(6px);}"
+        ".image-with-text__media img {position: relative; z-index: 1; width: 24rem; transform: translateY(6px);}",
+        "@media (max-width: 468px) {.image-with-text__media img {transform: unset; margin: auto; padding-top: 4rem; } .image-with-text__media {padding-right: 0 !important; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -399,6 +403,7 @@
       ],
       "custom_css": [
         "@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); }}",
+        ".collapsible-content__heading.inline-richtext.h1 {font-size: clamp(20px, 5vw, 36px);}",
         ".icon.icon-accordion.icon-check-mark {display: none;}",
         ".accordion__title {font-size: large;}",
         ".svg-wrapper {display: none;}",

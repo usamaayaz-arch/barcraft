@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "heading": "Elevate Your Living Space",
-            "heading_size": "h0"
+            "heading_size": "h1"
           }
         },
         "text_Cjg3Jj": {
@@ -43,16 +43,19 @@
         "text_Cjg3Jj",
         "button"
       ],
+      "custom_css": [
+        ".banner__text.rte.body p {justify-self: center; color: #f4f4f4; font-size: 16px;}"
+      ],
       "settings": {
         "image": "shopify://shop_images/image_3_696c35b5-5b64-48cb-bdd9-95c1ac210941.png",
         "image_2": "shopify://shop_images/image_2_f0da52a9-1215-4255-8a01-2e3d7034b75f.png",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-78b80a35-2e94-40f2-880e-4a103868af6b",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false

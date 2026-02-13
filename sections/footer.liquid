@@ -257,7 +257,10 @@
                   {%- endform -%}
                 </div>
               {%- endif -%}
-
+              <div style=" margin-top: 6rem;font-size: 14px;">
+                By clicking the button you agree to the
+                <a style="color: white;text-underline-position: under;" href="/pages/privacy-policy"> Privacy Policy</a>
+              </div>
               {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
                 <div class="footer__follow-on-shop">
                   {{ shop | login_button: action: 'follow' }}
@@ -477,6 +480,9 @@
     .footer-block--newsletter.scroll-trigger.animate--slide-in {
       width: 30rem;
       max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .footer-block.grid__item .scroll-trigger.animate--slide-in  {
       width: 24rem;
@@ -523,10 +529,11 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
-
-      .footer-block--newsletter.scroll-trigger.animate--slide-in {
-        {% comment %} order: 5; {% endcomment %}
-      }
+    .footer__blocks-wrapper.grid{
+          gap: 0;
+    }
+    .footer-block.grid__item{
+    margin:0;}
     }
 </style>
 {% schema %}

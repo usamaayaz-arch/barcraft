@@ -53,6 +53,7 @@
 
 .collapsible-content__header {
   word-break: break-word;
+  margin-bottom: 3rem;
 }
 
 .collapsible-content__heading {

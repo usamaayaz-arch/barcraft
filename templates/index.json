@@ -188,7 +188,7 @@
         ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 0rem; max-width: 53rem;}",
         ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}",
         ".image-with-text__text--caption + .image-with-text__heading {font-size: 36px;}",
-        ".image-with-text__text.rte.body p{font-size: 16px;}"
+        ".image-with-text__text.rte.body p {font-size: 16px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -324,6 +324,11 @@
         "text_acyNWM",
         "button_DWa6pU"
       ],
+      "custom_css": [
+        ".image-with-text__media-item {width: auto;}",
+        ".image-with-text__media {overflow: visible !important; border: unset; padding-right: 7rem !important; padding: unset; padding-bottom: unset !important;}",
+        ".image-with-text__media img {position: relative; z-index: 1; width: 24rem; transform: translateY(6px);}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/image_18.png",
@@ -399,6 +404,8 @@
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
+        "url_link_label": "Read FAQs",
+        "url_link": "shopify://pages/shop",
         "heading": "Frequently Asked Questions",
         "heading_size": "h1",
         "heading_alignment": "left",

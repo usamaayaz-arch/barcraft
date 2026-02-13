@@ -37,7 +37,7 @@
           {% endif %}
             {%- if section.settings.url_link != blank and section.settings.url_link_label != blank -%}
               <span style="display: flex;align-items: center;flex-wrap: nowrap;">
-                <a style="text-underline-offset: .5rem !important" href="{{ section.settings.url_link }}" class="collapsible-content__link link" target="_blank" rel="noopener">
+                <a style="text-underline-offset: .5rem;!important" href="{{ section.settings.url_link }}" class="collapsible-content__link link" target="_blank" rel="noopener">
                   {{ section.settings.url_link_label }}
                 </a>
                 {{ 'arrow_right.svg' | inline_asset_content }}

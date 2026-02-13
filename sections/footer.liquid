@@ -182,6 +182,19 @@
                 <div class="footer-block__newsletter">
                   {%- if section.settings.newsletter_heading != blank -%}
                     <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+                    <style>
+                      @media (max-width: 768px) {
+                        .footer-block__subheading {
+                          width: 100% !important;
+                        }
+                        .footer__blocks-wrapper.grid {
+                          display: flex !important;
+                          justify-content: flex-start !important;
+                          align-items: flex-start !important;
+                          flex-wrap: wrap !important;
+                        }
+                      }
+                    </style>
                     <h5 class="footer-block__subheading" style="text-align: left;width:35rem;">
                       {{ section.settings.newsletter_subheading }}
                     </h5>
@@ -526,8 +539,10 @@
     @media (max-width: 768px) {
       .footer__content-top.page-width
         .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
-        grid-template-columns: 1fr;
-        text-align: center;
+              display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
       }
     .footer__blocks-wrapper.grid{
           gap: 0;

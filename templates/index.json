@@ -44,7 +44,7 @@
         "button"
       ],
       "custom_css": [
-        ".banner__text.rte.body p {justify-self: center; color: #f4f4f4; font-size: 16px;}"
+        ".banner__text.rte.body p {justify-self: center; color: #f4f4f4; font-size: 16px; line-height: 2rem;}"
       ],
       "settings": {
         "image": "shopify://shop_images/image_3_696c35b5-5b64-48cb-bdd9-95c1ac210941.png",
@@ -64,15 +64,17 @@
     "featured_collection_kJLNqn": {
       "type": "featured-collection",
       "custom_css": [
-        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",
-        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
-        ".title.inline-richtext.h1 {margin: auto;}"
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before,.center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button {}",
+        ".title.inline-richtext.h1 {margin: auto; font-size: clamp(20px, 5vw, 36px); letter-spacing: -1px;}",
+        ".full-unstyled-link {font-size: 16px;}",
+        ".price__regular .price-item--regular{font-size: 14px;}"
       ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "console-cabinets-tables",
         "products_to_show": 4,
-        "title": "Our Best Sellers",
+        "title": "Our Bestsellers",
         "heading_size": "h1",
         "description": "",
         "show_description": false,

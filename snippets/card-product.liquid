@@ -223,6 +223,11 @@
           {% if quick_add == 'custom_quick_add' %}
             <script src="{{ 'barcraft-product-variant-selector.js' | asset_url }}" defer></script>
             <barcraft-product-variant-selector data-product="{{ card_product | json | escape }}">
+              <style>
+                .product-variants-picker{
+                  margin-top: 1rem;
+                }
+              </style>
               <div class="product-variants-picker">
                 {% for option in card_product.options_with_values %}
                   {% if option.name == 'Color' %}
@@ -236,7 +241,7 @@
                           role="button"
                           aria-label="{{ value }}"
                           data-value="{{ value }}"
-                          style="--swatch-color: {{ color }};border-radius: 50%;height: 2rem;width: 2rem;background: #F4F4F4;display: inline-flex;align-items: center;justify-content: center;"
+                          style="--swatch-color: {{ color }};border-radius: 50%;height: 1.4rem;width: 1.4rem;background: #F4F4F4;display: inline-flex;align-items: center;justify-content: center;"
                         >
                           {{ 'circle_filled.svg' | inline_asset_content }}
                         </span>
@@ -714,8 +719,6 @@
 
   .product-variant-color .variant-color svg {
     cursor: pointer;
-    width: 1.5rem;
-    height: 1.5rem;
     fill: var(--swatch-color);
   }
 

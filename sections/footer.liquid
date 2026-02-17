@@ -69,13 +69,18 @@
             {%- assign total_count = 0 -%}
             {%- for block in section.blocks -%}
               {%- assign total_count = total_count | plus: 1 -%}
+              {% comment %} <div style="justify-self: {% if total_count == 2 %} center; {% elsif total_count == 1 %} left; {% else %} center; {% endif %}" class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if block.settings.mobile_menu_flag == false %} mobile-menu-disable{% endif %} {% if block.settings.mobile_menu_flag == true %} mobile-menu-enable{% endif %}" {{ block.shopify_attributes }} {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};" {% endif %} > {% endcomment %}
               <div
-                style="justify-self: {% if total_count == 2 %} right; {% else %} left; {% endif %}"
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}{% if block.settings.mobile_menu_flag == false %} mobile-menu-disable{% endif %}{% if block.settings.mobile_menu_flag == true %} mobile-menu-enable{% endif %}"
+
+                style="
+                  justify-self: {% if total_count == 2 %} center; {% elsif total_count == 1 %} left; {% else %} center; {% endif %}
+                  {% if settings.animations_reveal_on_scroll %} --animation-order: {{ forloop.index }}; {% endif %}
+                "
+
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
-                  style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
@@ -179,10 +184,21 @@
               {% endif %}
             >
               {%- if section.settings.newsletter_enable -%}
+                <style>
+                  @media screen and (max-width: 768px) {
+                    .footer-block__newsletter {
+                      width: 35rem;
+                      margin: unset !important;
+                    }
+                  }
+                </style>
                 <div style="margin-left: auto;" class="footer-block__newsletter">
                   {%- if section.settings.newsletter_heading != blank -%}
                     <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
                     <style>
+                      .footer-block__heading.inline-richtext {
+                        margin: 0;
+                      }
                       @media (max-width: 768px) {
                         .footer-block__subheading {
                           width: 100% !important;
@@ -554,11 +570,22 @@
         margin:0;
         }
       }
-      @media (max-width: 426px) {
-            .footer-block.grid__item.footer-block--menu{
-        display:none;
-        }
+
+      .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in.mobile-menu-enable,
+      .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in.mobile-menu-disable {
+        display: block;
       }
+
+
+    @media (max-width: 425px) {
+      .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in.mobile-menu-disable {
+        display: none !important;
+      }
+
+      .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in.mobile-menu-enable {
+        display: block !important;
+      }
+    }
 </style>
 {% schema %}
 {
@@ -582,6 +609,13 @@
           "id": "menu",
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_menu_flag",
+          "default": false,
+          "label": "Mobile View",
+          "info": "If checkbox is enable then the menu will be visible in mobile view"
         }
       ]
     },

@@ -416,7 +416,7 @@
         "collapsible_row_F7DyYx"
       ],
       "custom_css": [
-        "@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); padding: 0 2rem !important; }}",
+        "@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); padding: 0px 2rem !important; }}",
         ".inline-richtext {font-size: clamp(20px, 5vw, 36px);}",
         ".icon-check-mark {display: none;}",
         ".accordion__title {font-size: large;}",

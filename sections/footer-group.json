@@ -24,21 +24,24 @@
           "type": "link_list",
           "settings": {
             "heading": "Shop",
-            "menu": "shop"
+            "menu": "shop",
+            "mobile_menu_flag": true
           }
         },
         "link_list_GPi4L3": {
           "type": "link_list",
           "settings": {
             "heading": "Customer Care",
-            "menu": "customer-care"
+            "menu": "customer-care",
+            "mobile_menu_flag": false
           }
         },
         "link_list_CYT63F": {
           "type": "link_list",
           "settings": {
             "heading": "Company",
-            "menu": "company"
+            "menu": "company",
+            "mobile_menu_flag": false
           }
         },
         "text_7A8rtd": {
@@ -57,11 +60,7 @@
         "link_list_CYT63F",
         "text_7A8rtd"
       ],
-      "custom_css": [
-        ".footer-block__subheading {font-size: 12px;}",
-        ".list-menu__item--link {color: #f9f9f999;}",
-        ".footer__localization {gap: 24px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "color_scheme": "scheme-04061d63-8543-4fe3-868f-d43cdde6eecf",
         "newsletter_enable": true,

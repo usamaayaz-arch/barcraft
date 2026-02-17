@@ -1,1 +1,84 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","settings":{"color_scheme":"scheme-04061d63-8543-4fe3-868f-d43cdde6eecf","newsletter_enable":true,"newsletter_heading":"Subscribe to our emails","enable_follow_on_shop":true,"show_social":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":true,"show_policy":true,"margin_top":0,"padding_top":36,"padding_bottom":36}}},"order":["footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand_information_P9AAMi": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": false
+          }
+        },
+        "link_list_XF4zzc": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "shop",
+            "mobile_menu_flag": true
+          }
+        },
+        "link_list_GPi4L3": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Customer Care",
+            "menu": "customer-care",
+            "mobile_menu_flag": false
+          }
+        },
+        "link_list_CYT63F": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "company",
+            "mobile_menu_flag": false
+          }
+        },
+        "text_7A8rtd": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "heading": "Contacts",
+            "subtext": "<p>+1 (917) 963-8076<br/>Mon-Fri 9:00 – 5:00 EST<br/>support@barcraftboutique.com<br/>30 N Gould St, Suite N, Sheridan, WY 82801</p>"
+          }
+        }
+      },
+      "block_order": [
+        "brand_information_P9AAMi",
+        "link_list_XF4zzc",
+        "link_list_GPi4L3",
+        "link_list_CYT63F",
+        "text_7A8rtd"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "scheme-04061d63-8543-4fe3-868f-d43cdde6eecf",
+        "newsletter_enable": true,
+        "newsletter_heading": "Stay Updated",
+        "newsletter_subheading": "Subscribe to our newsletter and never miss an update, from fresh arrivals to exclusive deals tailored just for you.",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

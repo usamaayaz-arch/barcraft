@@ -4,11 +4,9 @@
   <div class="heading-container">
     <div>
       {% if settings.section_title != blank %}
-        <div class="grid-title">{{ settings.section_title }}</div>
-      {% endif %}
-
-      {% if settings.section_subtitle != blank %}
-        <h5 class="grid-subtitle">{{ settings.section_subtitle }}</h5>
+      <div class="grid-title">{{ settings.section_title }}</div>
+      {% endif %} {% if settings.section_subtitle != blank %}
+      <h5 class="grid-subtitle">{{ settings.section_subtitle }}</h5>
       {% endif %}
     </div>
     <a class="grid-section-button" href="{{ settings.section_button_url }}">
@@ -18,139 +16,141 @@
 
   <div class="grid-container count-{{ image_count }}">
     {% for block in blocks %}
-      <div class="item">
-        <a href="{{block.settings.collection_url}}">
-          <span class="item-title">{{ block.settings.collection_title }}</span>
-          {% if block.settings.grid_image != blank %}
-            <img
-              src="{{ block.settings.grid_image | image_url: width:auto }}"
-              alt=""
-              loading="lazy"
-              width="auto"
-              height="auto"
-            >
-          {% endif %}
-        </a>
-      </div>
+    <div class="item">
+      <a href="{{block.settings.collection_url}}">
+        <span class="item-title">{{ block.settings.collection_title }}</span>
+        {% if block.settings.grid_image != blank %}
+        <img
+          src="{{ block.settings.grid_image | image_url: width:auto }}"
+          alt=""
+          loading="lazy"
+          width="auto"
+          height="auto"
+        />
+        {% endif %}
+      </a>
+    </div>
     {% endfor %}
   </div>
 </div>
 
 <style>
-       .heading-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      flex-direction: row;
-      margin-bottom: 8rem;
-      gap:16px;
+    .heading-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 8rem;
+    gap: 16px;
+  }
+
+  .grid-section-button {
+    text-decoration: unset;
+    background: black;
+    color: white;
+    border-radius: 4px;
+    padding: 0px 50px;
+    height: 50px;
+    letter-spacing: 0px;
+    align-content: center;
+    font-size: 14px;
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 3rem;
+  }
+
+  .grid-title h1,
+  .grid-title h2,
+  .grid-title h3,
+  .grid-title h4,
+  .grid-title h5,
+  .grid-title h6,
+  .grid-title p {
+    font-size: clamp(20px, 5vw, 36px);
+    margin: 0 !important;
+  }
+
+  .grid-title {
+    margin-bottom: .5rem;
+  }
+
+  .grid-subtitle {
+    margin: 0 !important;
+    color: #696969;
+  }
+
+  .item {
+    position: relative;
+    width: 100%;
+  }
+
+  .item-title {
+    position: absolute;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 400;
+    top: 31px;
+    left: 32px;
+
+  }
+
+  .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+  }
+
+  .grid-container.count-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container.count-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-container.count-3 {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .grid-container.count-3 .item:nth-child(1) {
+    grid-row: span 2;
+  }
+
+
+  .grid-container.count-4 {
+    grid-template-areas: "image1 image1 image1 image3 image3 image3 image4 image4" "image1 image1 image1 image2 image2 image2 image2 image2";
+  }
+
+  .grid-container.count-4 .item:nth-child(1) {
+    grid-area: image1;
+  }
+
+  .grid-container.count-4 .item:nth-child(2) {
+    grid-area: image2;
+  }
+
+  .grid-container.count-4 .item:nth-child(3) {
+    grid-area: image3;
+  }
+
+  .grid-container.count-4 .item:nth-child(4) {
+    grid-area: image4;
+  }
+
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto !important;
+      grid-template-areas: none !important;
     }
-  .grid-section-button{
-      text-decoration: unset;
-      background: black;
-      color: white;
-      padding: 1.5rem 6rem;
-      height: 6rem;
-      border-radius: 4px;}
 
-      .grid-container {
-        display: grid;
-        gap: 6px;
-        margin-bottom:3rem;
-      }
-
-      .grid-title h1,
-      .grid-title h2,
-      .grid-title h3,
-      .grid-title h4,
-      .grid-title h5,
-      .grid-title h6,
-      .grid-title p,
-      .grid-subtitle  {
-          margin: 0 !important;
-        }
-
-      .grid-title {
-          margin-bottom: 1rem;
-        }
-
-      .item {
-        position: relative;
-        width: 100%;
-      }
-     .item-title {
-          position: absolute;
-      font-size: 30px;
-      color: #ffffff;
-      font-weight: 400;
-      top: 0rem;
-      left: 2rem;}
-
-      .item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .grid-container.count-1 {
-        grid-template-columns: 1fr;
-      }
-
-      .grid-container.count-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .grid-container.count-3 {
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr 1fr;
-      }
-
-      .grid-container.count-3 .item:nth-child(1) {
-        grid-row: span 2;
-      }
-
-
-      .grid-container.count-4 {
-        grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:
-          "image1 image1 image1 image3 image3 image3 image4 image4"
-          "image1 image1 image1 image2 image2 image2 image2 image2";
-      }
-
-      {% comment %} .grid-container.count-4 {
-        grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:
-          "image1 image1 image1 image1 image1 image3 image3 image3 image4 image4"
-          "image1 image1 image1 image1 image1 image2 image2 image2 image2 image2";
-      } {% endcomment %}
-
-      .grid-container.count-4 .item:nth-child(1) {
-        grid-area: image1;
-      }
-
-      .grid-container.count-4 .item:nth-child(2) {
-        grid-area: image2;
-      }
-
-      .grid-container.count-4 .item:nth-child(3) {
-        grid-area: image3;
-      }
-
-      .grid-container.count-4 .item:nth-child(4) {
-        grid-area: image4;
-      }
-
-      @media (max-width: 768px) {
-        .grid-container {
-          grid-template-columns: 1fr !important;
-          grid-template-rows: auto !important;
-          grid-template-areas: none !important;
-        }
-
-        .grid-container .item {
-          grid-area: auto !important;
-        }
-      }
+    .grid-container .item {
+      grid-area: auto !important;
+    }
+  }
 </style>

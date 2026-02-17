@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "heading": "Elevate Your Living Space",
-            "heading_size": "h0"
+            "heading_size": "h1"
           }
         },
         "text_Cjg3Jj": {
@@ -29,7 +29,7 @@
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop All",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
@@ -43,16 +43,20 @@
         "text_Cjg3Jj",
         "button"
       ],
+      "custom_css": [
+        ".banner__text.rte.body p {justify-self: center; color: #f4f4f4; font-size: 16px; line-height: 2rem;}",
+        ".button.button--primary {height: 3rem; padding-left: 5rem; padding-right: 5rem; letter-spacing: 0px;}"
+      ],
       "settings": {
         "image": "shopify://shop_images/image_3_696c35b5-5b64-48cb-bdd9-95c1ac210941.png",
         "image_2": "shopify://shop_images/image_2_f0da52a9-1215-4255-8a01-2e3d7034b75f.png",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-78b80a35-2e94-40f2-880e-4a103868af6b",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false
@@ -61,15 +65,17 @@
     "featured_collection_kJLNqn": {
       "type": "featured-collection",
       "custom_css": [
-        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",
-        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
-        ".title.inline-richtext.h1 {margin: auto;}"
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before,.center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
+        ".center.collection__view-all.scroll-trigger.animate--slide-in .button {}",
+        ".title.inline-richtext.h1 {margin: auto; font-size: clamp(22px, 5vw, 36px); letter-spacing: -1px;}",
+        ".full-unstyled-link {font-size: 16px;}",
+        ".price__regular .price-item--regular {font-size: 14px;}"
       ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "console-cabinets-tables",
         "products_to_show": 4,
-        "title": "Our Best Sellers",
+        "title": "Our Bestsellers",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -136,6 +142,9 @@
         "collection_item_CEU8nr",
         "collection_item_WCBVjN"
       ],
+      "custom_css": [
+        "h1 {font-size: clamp(20px, 5vw, 36px);}"
+      ],
       "name": "Barcraft Collection Grid",
       "settings": {
         "section_title": "<h1>Shop Category</h1>",
@@ -185,11 +194,17 @@
         "button_6HgMKn"
       ],
       "custom_css": [
-        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 1rem;}",
-        ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}"
+        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 0rem; max-width: 53rem; margin: 0;}",
+        ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}",
+        ".image-with-text__text--caption + .image-with-text__heading {font-size: 36px;}",
+        ".image-with-text__text.rte.body p {font-size: 16px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image_position_out_of_the_box": false,
+        "sub_heading_margin_top": 0,
+        "text_boxes_border_radius": 0,
+        "image_width": 30,
         "image": "shopify://shop_images/image_7.png",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -210,7 +225,7 @@
       "custom_css": [
         ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before {box-shadow: unset;}",
         ".center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
-        ".title.inline-richtext.h1 {margin: auto;}"
+        ".title.inline-richtext.h1 {margin: auto; font-size: clamp(22px, 5vw, 36px);}"
       ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
@@ -275,6 +290,10 @@
         "heading_Vxq7ir",
         "buttons_4aaE9m"
       ],
+      "custom_css": [
+        ".banner__text.rte.body p {color: #a9a9a9b2;}",
+        ".button,.button-label,.shopify-challenge__button,.customer button {letter-spacing: 0;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "watermark_image": "shopify://shop_images/image_2_3481d4e4-d71f-47f1-94c1-38eb3802ddea.png",
@@ -322,8 +341,19 @@
         "text_acyNWM",
         "button_DWa6pU"
       ],
+      "custom_css": [
+        ".image-with-text__media-item {width: auto;}",
+        ".image-with-text__media {overflow: visible !important; border: unset; padding-right: 7rem !important; padding: unset; padding-bottom: unset !important;}",
+        "@media (max-width: 468px) {.image-with-text__media img {transform: unset; margin: auto; padding-top: 4rem; } .image-with-text__media {padding-right: 0 !important; }}",
+        ".button {margin-top: 1rem !important; font-size: 14px;}",
+        ".image-with-text__content .image-with-text__text + .button {padding: 20px 52px;}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image_position_out_of_the_box": true,
+        "sub_heading_margin_top": 0,
+        "text_boxes_border_radius": 4,
+        "image_width": 20,
         "image": "shopify://shop_images/image_18.png",
         "height": "adapt",
         "desktop_image_width": "small",
@@ -386,17 +416,20 @@
         "collapsible_row_F7DyYx"
       ],
       "custom_css": [
-        "@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); }}",
-        ".icon.icon-accordion.icon-check-mark {display: none;}",
+        "@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); padding: 0px 2rem !important; }}",
+        ".inline-richtext {font-size: clamp(20px, 5vw, 36px);}",
+        ".icon-check-mark {display: none;}",
         ".accordion__title {font-size: large;}",
         ".svg-wrapper {display: none;}",
         ".accordion__content {padding-left: 0;}",
         ".accordion__content rte {margin-right: 2rem;}",
-        ".collapsible-content-wrapper-narrow {margin: 0 auto; padding-right: 5rem; padding-left: 5rem; max-width: 121rem;}"
+        ".collapsible-content-wrapper-narrow {margin: 0 auto; padding: 0px 5rem; max-width: 121rem;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
+        "url_link_label": "Read FAQs",
+        "url_link": "shopify://pages/shop",
         "heading": "Frequently Asked Questions",
         "heading_size": "h1",
         "heading_alignment": "left",
@@ -454,8 +487,8 @@
         ".multicolumn-card {background: unset;}",
         ".media--transparent {width: 5rem; height: 5rem; background-color: #f4f4f4 !important; border-radius: 25px; padding-bottom: 0px !important;}",
         ".multicolumn-card-spacing {padding-top: 0; justify-items: center;}",
-        ".inline-richtext {font-weight: 600;}",
-        ".multicolumn-card__info {padding: 2rem 2.5rem 0;}",
+        ".inline-richtext {font-weight: 600; letter-spacing: 0;}",
+        ".multicolumn-card__info {padding: 1rem 2.5rem 0;}",
         "li:not(:last-child) .multicolumn-card.content-container {border-right: 1px solid #e5e5e5;}"
       ],
       "name": "t:sections.multicolumn.presets.name",

@@ -66,6 +66,7 @@
     padding-bottom: 1rem;
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
+    
   }
 
   @media screen and (min-width: 750px) {
@@ -292,14 +293,16 @@
           <span class="svg-wrapper">{{ 'cart_icon.svg' | inline_asset_content }}</span>
         {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
+        {% comment %} {%- if cart != empty -%} {% endcomment %}
           <div class="cart-count-bubble">
             {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
+              <span aria-hidden="true">
+                {% if cart.item_count > 0 %}{{ cart.item_count }}{% else %}0{% endif %}
+              </span>
             {%- endif -%}
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
-        {%- endif -%}
+        {% comment %} {%- endif -%} {% endcomment %}
       </a>
     </div>
   </header>

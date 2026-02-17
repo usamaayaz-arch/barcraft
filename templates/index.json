@@ -194,13 +194,17 @@
         "button_6HgMKn"
       ],
       "custom_css": [
-        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 0rem; max-width: 53rem;}",
+        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 0rem; max-width: 53rem; margin: 0;}",
         ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}",
         ".image-with-text__text--caption + .image-with-text__heading {font-size: 36px;}",
         ".image-with-text__text.rte.body p {font-size: 16px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image_position_out_of_the_box": false,
+        "sub_heading_margin_top": 0,
+        "text_boxes_border_radius": 0,
+        "image_width": 30,
         "image": "shopify://shop_images/image_7.png",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -286,6 +290,10 @@
         "heading_Vxq7ir",
         "buttons_4aaE9m"
       ],
+      "custom_css": [
+        ".banner__text.rte.body p {color: #a9a9a9b2;}",
+        ".button,.button-label,.shopify-challenge__button,.customer button {letter-spacing: 0;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "watermark_image": "shopify://shop_images/image_2_3481d4e4-d71f-47f1-94c1-38eb3802ddea.png",
@@ -336,11 +344,16 @@
       "custom_css": [
         ".image-with-text__media-item {width: auto;}",
         ".image-with-text__media {overflow: visible !important; border: unset; padding-right: 7rem !important; padding: unset; padding-bottom: unset !important;}",
-        ".image-with-text__media img {position: relative; z-index: 1; width: 24rem; transform: translateY(6px);}",
-        "@media (max-width: 468px) {.image-with-text__media img {transform: unset; margin: auto; padding-top: 4rem; } .image-with-text__media {padding-right: 0 !important; }}"
+        "@media (max-width: 468px) {.image-with-text__media img {transform: unset; margin: auto; padding-top: 4rem; } .image-with-text__media {padding-right: 0 !important; }}",
+        ".button {margin-top: 1rem !important; font-size: 14px;}",
+        ".image-with-text__content .image-with-text__text+.button {padding: 20px 52px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image_position_out_of_the_box": true,
+        "sub_heading_margin_top": 0,
+        "text_boxes_border_radius": 4,
+        "image_width": 20,
         "image": "shopify://shop_images/image_18.png",
         "height": "adapt",
         "desktop_image_width": "small",
@@ -474,8 +487,8 @@
         ".multicolumn-card {background: unset;}",
         ".media--transparent {width: 5rem; height: 5rem; background-color: #f4f4f4 !important; border-radius: 25px; padding-bottom: 0px !important;}",
         ".multicolumn-card-spacing {padding-top: 0; justify-items: center;}",
-        ".inline-richtext {font-weight: 600;}",
-        ".multicolumn-card__info {padding: 2rem 2.5rem 0;}",
+        ".inline-richtext {font-weight: 600; letter-spacing: 0;}",
+        ".multicolumn-card__info {padding: 1rem 2.5rem 0;}",
         "li:not(:last-child) .multicolumn-card.content-container {border-right: 1px solid #e5e5e5;}"
       ],
       "name": "t:sections.multicolumn.presets.name",

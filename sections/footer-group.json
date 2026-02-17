@@ -43,6 +43,7 @@
         },
         "text_7A8rtd": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "heading": "Contacts",
             "subtext": "<p>+1 (917) 963-8076<br/>Mon-Fri 9:00 – 5:00 EST<br/>support@barcraftboutique.com<br/>30 N Gould St, Suite N, Sheridan, WY 82801</p>"
@@ -58,7 +59,8 @@
       ],
       "custom_css": [
         ".footer-block__subheading {font-size: 12px;}",
-        ".list-menu__item--link {color: #f9f9f999;}"
+        ".list-menu__item--link {color: #f9f9f999;}",
+        ".footer__localization {gap: 24px;}"
       ],
       "settings": {
         "color_scheme": "scheme-04061d63-8543-4fe3-868f-d43cdde6eecf",

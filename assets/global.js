@@ -569,6 +569,10 @@ class HeaderDrawer extends MenuDrawer {
       `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
     );
     this.header.classList.add('menu-open');
+    
+    const header = document.querySelector('.section-header.shopify-section-group-header-group');
+    if (header) { header.style.zIndex = '4'; }
+
 
     setTimeout(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
@@ -585,6 +589,8 @@ class HeaderDrawer extends MenuDrawer {
     super.closeMenuDrawer(event, elementToFocus);
     this.header.classList.remove('menu-open');
     window.removeEventListener('resize', this.onResize);
+        const header = document.querySelector('.section-header.shopify-section-group-header-group');
+    if (header) { header.style.zIndex = '3'; }
   }
 
   onResize = () => {

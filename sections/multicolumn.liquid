@@ -189,6 +189,54 @@
     </div>
   </div>
 </div>
+<style>
+  .multicolumn .section-{{ section.id }}-padding .media > *:not(.zoom):not(.deferred-media__poster-button) {
+    position: unset !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding .multicolumn-card__image {
+    max-width: 2.5rem !important;
+    max-height: 2.5rem !important;
+    place-self: center !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding .multicolumn-card {
+    background: unset !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding .media--transparent {
+    width: 5rem !important;
+    height: 5rem !important;
+    background-color: #f4f4f4 !important;
+    border-radius: 25px !important;
+    padding-bottom: 0px !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding .multicolumn-card-spacing {
+    padding-top: 0 !important;
+    justify-items: center !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding .multicolumn-card__info .inline-richtext {
+    font-weight: 600 !important;
+    letter-spacing: 0 !important;
+    font-size: 20px !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding .multicolumn-card__info {
+    padding: 1rem 2.5rem 0 2.5rem !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding li:not(:last-child) .multicolumn-card.content-container {
+    border-right: 1px solid #e5e5e5 !important;
+  }
+
+  .multicolumn .section-{{ section.id }}-padding .media.media--transparent.media--circle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+</style>
 
 {% schema %}
 {
@@ -236,7 +284,7 @@
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_image.content"
-    },    
+    },
     {
       "type": "select",
       "id": "image_width",
@@ -284,23 +332,23 @@
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_button.content"
-    },    
+    },
     {
       "type": "text",
       "id": "button_label",
       "default": "t:sections.multicolumn.settings.button_label.default",
-      "label": "t:sections.multicolumn.settings.button_label.label", 
+      "label": "t:sections.multicolumn.settings.button_label.label",
       "info": "t:sections.multicolumn.settings.button_label.info"
     },
     {
       "type": "url",
       "id": "button_link",
       "label": "t:sections.multicolumn.settings.button_link.label"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_layout.content"
-    },     
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -347,7 +395,7 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_mobile.content"

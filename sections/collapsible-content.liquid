@@ -18,7 +18,10 @@
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="collapsible-content collapsible-{{ section.settings.layout }}-layout isolate{% if section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
     <div class="collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
-      <div style="max-width:100%;" class="{% if section.settings.image == blank %}collapsible-content-wrapper-narrow{% else %}page-width{% endif %}">
+      <div
+        style="max-width:100%;"
+        class="{% if section.settings.image == blank %}collapsible-content-wrapper-narrow{% else %}page-width{% endif %}"
+      >
         <div
           class="collapsible-content__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           style="text-align: {{ section.settings.heading_alignment }};"
@@ -29,20 +32,29 @@
             </p>
           {% endif %}
           {%- if section.settings.heading != blank -%}
-            <h2 style="margin:0rem;" class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
+            <h2
+              style="margin:0rem;"
+              class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}"
+            >
               {{ section.settings.heading }}
             </h2>
           {%- else -%}
             <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
           {% endif %}
-            {%- if section.settings.url_link != blank and section.settings.url_link_label != blank -%}
-              <span style="display: flex;align-items: center;flex-wrap: nowrap;">
-                <a style="text-underline-offset: .5rem;!important" href="{{ section.settings.url_link }}" class="collapsible-content__link link" target="_blank" rel="noopener">
-                  {{ section.settings.url_link_label }}
-                </a>
-                {{ 'arrow_right.svg' | inline_asset_content }}
-              </span>
-            {%- endif -%}
+          {%- if section.settings.url_link != blank and section.settings.url_link_label != blank -%}
+            <span style="display: flex;align-items: center;flex-wrap: nowrap;">
+              <a
+                style="text-underline-offset: .5rem;!important"
+                href="{{ section.settings.url_link }}"
+                class="collapsible-content__link link"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ section.settings.url_link_label }}
+              </a>
+              {{ 'arrow_right.svg' | inline_asset_content }}
+            </span>
+          {%- endif -%}
         </div>
         <div class="grid grid--1-col grid--2-col-tablet collapsible-content__grid{% if section.settings.desktop_layout == 'image_second' %} collapsible-content__grid--reverse{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {%- if section.settings.image != blank -%}
@@ -113,7 +125,44 @@
     </div>
   </div>
 </div>
+<style>
+@media screen and (max-width: 425px) {
+  .collapsible-content-wrapper-narrow {
+    max-width: calc(100% - 3rem);
+    padding: 0px 2rem !important;
+  }
+}
 
+.inline-richtext {
+  font-size: clamp(20px, 5vw, 36px) !important;
+}
+
+.icon-check-mark {
+  display: none;
+}
+
+.accordion__title {
+  font-size: large;
+}
+
+.accordion details summary .svg-wrapper {
+  display: none;
+}
+
+.accordion__content {
+  padding-left: 0;
+}
+
+.accordion__contentrte {
+  margin-right: 2rem;
+}
+
+.collapsible-content-wrapper-narrow {
+  margin: 0 auto;
+  padding: 0px 5rem;
+  max-width: 121rem;
+}
+</style>
 {% schema %}
 {
   "name": "t:sections.collapsible_content.name",
@@ -131,13 +180,13 @@
     {
       "type": "text",
       "id": "url_link_label",
-      "label": "Url Link Label",
+      "label": "Url Link Label"
     },
     {
       "type": "url",
       "id": "url_link",
       "label": "Url Link"
-    },    
+    },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -195,7 +244,7 @@
     {
       "type": "header",
       "content": "t:sections.collapsible_content.settings.layout_header.content"
-    },    
+    },
     {
       "type": "select",
       "id": "layout",
@@ -221,7 +270,7 @@
       "id": "container_color_scheme",
       "label": "t:sections.collapsible_content.settings.container_color_scheme.label",
       "default": "scheme-2"
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",

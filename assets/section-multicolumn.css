@@ -94,7 +94,8 @@
 }
 
 .multicolumn-card__info > :nth-child(2) {
-  margin-top: 1rem;
+  margin-top: 0rem;
+  /* margin-top: 1rem; */
 }
 
 .multicolumn-list__item.center .media--adapt,

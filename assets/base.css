@@ -2840,9 +2840,13 @@ details[open]>.header__submenu {
   transition: text-decoration var(--duration-short) ease;
 }
 
-.header__menu-item:hover span {
+/* .header__menu-item:hover span {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
+} */
+.header__menu-item:hover span {
+    text-decoration: underline;
+    text-underline-offset: 2.75rem;
 }
 
 details[open]>.header__menu-item {

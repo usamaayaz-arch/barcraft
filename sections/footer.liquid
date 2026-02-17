@@ -70,7 +70,7 @@
             {%- for block in section.blocks -%}
               {%- assign total_count = total_count | plus: 1 -%}
               <div
-                style="justify-self: {% if total_count == 2 %} right; {% else %} center; {% endif %}"
+                style="justify-self: {% if total_count == 2 %} right; {% else %} left; {% endif %}"
                 class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
@@ -179,7 +179,7 @@
               {% endif %}
             >
               {%- if section.settings.newsletter_enable -%}
-                <div class="footer-block__newsletter">
+                <div style="margin-left: auto;" class="footer-block__newsletter">
                   {%- if section.settings.newsletter_heading != blank -%}
                     <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
                     <style>
@@ -268,12 +268,14 @@
                       </h3>
                     {%- endif -%}
                   {%- endform -%}
+                  <div style="margin-top: 7rem;font-size: 12px;text-align: left;">
+                    By clicking the button you agree to the
+                    <a style="color: white;text-underline-position: under;" href="/pages/privacy-policy">
+                      Privacy Policy</a
+                    >
+                  </div>
                 </div>
               {%- endif -%}
-              <div style=" margin-top: 6rem;font-size: 12px;">
-                By clicking the button you agree to the
-                <a style="color: white;text-underline-position: under;" href="/pages/privacy-policy"> Privacy Policy</a>
-              </div>
               {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
                 <div class="footer__follow-on-shop">
                   {{ shop | login_button: action: 'follow' }}
@@ -335,8 +337,8 @@
         {%- endif -%}
       </div>
       <div class="footer__column footer__column--social">
-        <div style="color: #F9F9F966;font: status-bar;">Join Our Social Media</div>
         {%- if section.settings.show_social and has_social_icons -%}
+          <div style="color: #F9F9F966;font: status-bar;">Join Our Social Media</div>
           {%- render 'social-icons', class: 'footer__list-social' -%}
         {%- endif -%}
       </div>
@@ -409,8 +411,8 @@
       }
 
       .list-payment__item svg {
-        width: 6rem;
-        height: 3.6rem;
+        width: 60px;
+        height: 36px;
       }
 
       .list-social__link {
@@ -509,7 +511,7 @@
         text-align: left;
       }
       .footer-block.grid__item.scroll-trigger.animate--slide-in {
-        text-align: left;
+        text-align: left !important;
       }
 
       .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in {
@@ -532,26 +534,30 @@
       }
 
       @media (max-width: 1024px) {
-        .footer__content-top.page-width
-          .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
-          grid-template-columns: repeat(2, 1fr);
+        .footer__content-top.page-width .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
+          grid-template-columns: repeat(4, 1fr);
           gap: 2rem;
         }
       }
 
       @media (max-width: 768px) {
-        .footer__content-top.page-width
-          .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
-                display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
+        .footer__content-top.page-width .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-wrap: wrap;
         }
-      .footer__blocks-wrapper.grid{
-            gap: 0;
+        .footer__blocks-wrapper.grid{
+          gap: 0;
+        }
+        .footer-block.grid__item{
+        margin:0;
+        }
       }
-      .footer-block.grid__item{
-      margin:0;}
+      @media (max-width: 426px) {
+            .footer-block.grid__item.footer-block--menu{
+        display:none;
+        }
       }
 </style>
 {% schema %}

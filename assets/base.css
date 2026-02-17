@@ -2348,6 +2348,15 @@ input[type='checkbox'] {
   }
 }
 
+.d-flex {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 /* section-header */
 .section-header.shopify-section-group-header-group {
   z-index: 3;

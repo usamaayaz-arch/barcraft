@@ -117,9 +117,11 @@
             {%- endif -%}
           {%- endfor -%}
             {%- if tag == 'new' -%}
-            <span style="position: absolute;top: 0px;right: 4px;font-size: small;padding: 0 1.25rem;align-content: center;text-align: center;background: #F9F9F9;border-radius: 4px;color: black;" >New</span>
+            <span style="position: absolute;top: 04px;right: 4px;font-size: small;padding: 0 1.25rem;align-content: center;text-align: center;background: #F9F9F9;border-radius: 4px;color: black;" >New</span>
+            {%- elsif card_product.available == false -%}
+            <span style="position: absolute;top: 04px;right: 4px;font-size: small;padding: 0 1.25rem;align-content: center;text-align: center;background: #F9F9F9;border-radius: 4px;color: black;" >Sold Out</span>
             {%- elsif tag == 'sale' -%}
-            <span style="position: absolute;top: 0px;right: 4px;font-size: small;padding: 0 1.25rem;align-content: center;text-align: center;background: #000000;border-radius: 4px;color: white;" >Sale</span>
+            <span style="position: absolute;top: 04px;right: 4px;font-size: small;padding: 0 1.25rem;align-content: center;text-align: center;background: #000000;border-radius: 4px;color: white;" >Sale</span>
             {%- endif -%}
 
         <div class="card__information">
@@ -139,7 +141,7 @@
             </a>
           </h3>
         </div>
-        <div class="card__badge {{ settings.badge_position }}">
+        {% comment %} <div class="card__badge {{ settings.badge_position }}">
           {%- if card_product.available == false -%}
             <span
               id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
@@ -155,7 +157,7 @@
               {{- 'products.product.on_sale' | t -}}
             </span>
           {%- endif -%}
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
     <div class="card__content">
@@ -707,7 +709,7 @@
     justify-self: center;
     text-align: center;
     color: #f9f9f9;
-    bottom: 12rem;
+    bottom: 14rem;
     z-index: 1;
     cursor: pointer;
     border-radius: 4px;

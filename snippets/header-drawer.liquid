@@ -167,7 +167,15 @@
               </a>
             {%- endif -%}
             {%- if localization.available_countries or localization.available_languages -%}
-              <div class="menu-drawer__localization header-localization">
+              <style>
+                .menu-drawer__localization .localization-form__select {
+                  padding: 1rem 3.6rem 1rem 2rem !important;
+                }
+                .menu-drawer__localization.header-localization.d-flex .disclosure .disclosure__button.localization-form__select.localization-selector.link.link--text.caption-large {
+                  background: #ffffff !important;
+                }
+              </style>
+              <div class="menu-drawer__localization header-localization d-flex">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
                   <localization-form>
                     {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}

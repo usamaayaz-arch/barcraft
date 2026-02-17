@@ -29,7 +29,7 @@
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop All",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
@@ -44,12 +44,13 @@
         "button"
       ],
       "custom_css": [
-        ".banner__text.rte.body p {justify-self: center; color: #f4f4f4; font-size: 16px; line-height: 2rem;}"
+        ".banner__text.rte.body p {justify-self: center; color: #f4f4f4; font-size: 16px; line-height: 2rem;}",
+        ".button.button--primary {height: 3rem; padding-left: 5rem; padding-right: 5rem; letter-spacing: 0px;}"
       ],
       "settings": {
         "image": "shopify://shop_images/image_3_696c35b5-5b64-48cb-bdd9-95c1ac210941.png",
         "image_2": "shopify://shop_images/image_2_f0da52a9-1215-4255-8a01-2e3d7034b75f.png",
-        "image_overlay_opacity": 20,
+        "image_overlay_opacity": 30,
         "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",

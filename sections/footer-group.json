@@ -56,10 +56,14 @@
         "link_list_CYT63F",
         "text_7A8rtd"
       ],
+      "custom_css": [
+        ".footer-block__subheading {font-size: 12px;}",
+        ".list-menu__item--link {color: #f9f9f999;}"
+      ],
       "settings": {
         "color_scheme": "scheme-04061d63-8543-4fe3-868f-d43cdde6eecf",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "Stay Updated",
         "newsletter_subheading": "Subscribe to our newsletter and never miss an update, from fresh arrivals to exclusive deals tailored just for you.",
         "enable_follow_on_shop": true,
         "show_social": true,

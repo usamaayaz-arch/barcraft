@@ -166,7 +166,7 @@
             </div>
 =======
             {%- assign total_count = 0 -%}
->>>>>>> usama-dev
+
             {%- for block in section.blocks -%}
               {%- assign total_count = total_count | plus: 1 -%}
               {% comment %} <div style="justify-self: {% if total_count == 2 %} center; {% elsif total_count == 1 %} left; {% else %} center; {% endif %}" class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if block.settings.mobile_menu_flag == false %} mobile-menu-disable{% endif %} {% if block.settings.mobile_menu_flag == true %} mobile-menu-enable{% endif %}" {{ block.shopify_attributes }} {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};" {% endif %} > {% endcomment %}
@@ -501,7 +501,7 @@
           </div>
         {% endcomment %}
 =======
->>>>>>> usama-dev
+
       </div>
     {%- endunless -%}
   {%- endif -%}
@@ -548,7 +548,7 @@
             <ul class="list list-payment" role="list">
 =======
             <ul class="list list-payment" style="gap:4px" role="list">
->>>>>>> usama-dev
+
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
                   {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
@@ -565,7 +565,7 @@
 =======
         {%- if section.settings.show_social and has_social_icons -%}
           <div style="color: #F9F9F966;font: status-bar;">Join Our Social Media</div>
->>>>>>> usama-dev
+
           {%- render 'social-icons', class: 'footer__list-social' -%}
         {%- endif -%}
       </div>
@@ -979,7 +979,7 @@
         display: block !important;
       }
     }
->>>>>>> usama-dev
+
 </style>
 {% schema %}
 {

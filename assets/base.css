@@ -146,10 +146,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     padding-right: 5rem;
     grid-template-columns: 1fr 1.21fr 1fr;
 
-=======
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
->>>>>>> usama-dev
+
   }
 
   .page-width--narrow {
@@ -2121,7 +2120,7 @@ input[type='checkbox'] {
   top: -2px;
   right: 2px;
 
->>>>>>> usama-dev
+
 }
 
 /* utility-bar */

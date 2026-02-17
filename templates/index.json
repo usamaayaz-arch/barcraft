@@ -64,13 +64,7 @@
     },
     "featured_collection_kJLNqn": {
       "type": "featured-collection",
-      "custom_css": [
-        ".center.collection__view-all.scroll-trigger.animate--slide-in .button::before,.center.collection__view-all.scroll-trigger.animate--slide-in .button::after {box-shadow: unset;}",
-        ".center.collection__view-all.scroll-trigger.animate--slide-in .button {}",
-        ".title.inline-richtext.h1 {margin: auto; font-size: clamp(22px, 5vw, 36px); letter-spacing: -1px;}",
-        ".full-unstyled-link {font-size: 16px;}",
-        ".price__regular .price-item--regular {font-size: 14px;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "console-cabinets-tables",
@@ -142,9 +136,7 @@
         "collection_item_CEU8nr",
         "collection_item_WCBVjN"
       ],
-      "custom_css": [
-        "h1 {font-size: clamp(20px, 5vw, 36px);}"
-      ],
+      "custom_css": [],
       "name": "Barcraft Collection Grid",
       "settings": {
         "section_title": "<h1>Shop Category</h1>",
@@ -194,10 +186,9 @@
         "button_6HgMKn"
       ],
       "custom_css": [
-        ".image-with-text__content.image-with-text__content--top.image-with-text__content--desktop-left.image-with-text__content--mobile-left.image-with-text__content--adapt.content-container.background-transparent {padding: 0rem; max-width: 53rem; margin: 0;}",
+        ".image-with-text__content.image-with-text__content--top {padding: 0rem; max-width: 53rem; margin: 0; place-content: center;}",
         ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}",
-        ".image-with-text__text--caption + .image-with-text__heading {font-size: 36px;}",
-        ".image-with-text__text.rte.body p {font-size: 16px;}"
+        ".image-with-text__text--caption + .image-with-text__heading {font-size: 36px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -292,7 +283,8 @@
       ],
       "custom_css": [
         ".banner__text.rte.body p {color: #a9a9a9b2;}",
-        ".button,.button-label,.shopify-challenge__button,.customer button {letter-spacing: 0;}"
+        ".button {letter-spacing: 0;}",
+        "@media (max-width: 756px) {.banner__text.rte.body {place-items: center; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -415,16 +407,7 @@
         "collapsible_row_FRe4KW",
         "collapsible_row_F7DyYx"
       ],
-      "custom_css": [
-        "@media screen and (max-width: 425px) {.collapsible-content-wrapper-narrow {max-width: calc(100% - 3rem); padding: 0px 2rem !important; }}",
-        ".inline-richtext {font-size: clamp(20px, 5vw, 36px);}",
-        ".icon-check-mark {display: none;}",
-        ".accordion__title {font-size: large;}",
-        ".svg-wrapper {display: none;}",
-        ".accordion__content {padding-left: 0;}",
-        ".accordion__content rte {margin-right: 2rem;}",
-        ".collapsible-content-wrapper-narrow {margin: 0 auto; padding: 0px 5rem; max-width: 121rem;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
@@ -482,19 +465,11 @@
         "column_DMRLf8",
         "column_RfAWYw"
       ],
-      "custom_css": [
-        ".multicolumn-card__image {max-width: 2.5rem; max-height: 2.5rem; place-self: anchor-center;}",
-        ".multicolumn-card {background: unset;}",
-        ".media--transparent {width: 5rem; height: 5rem; background-color: #f4f4f4 !important; border-radius: 25px; padding-bottom: 0px !important;}",
-        ".multicolumn-card-spacing {padding-top: 0; justify-items: center;}",
-        ".inline-richtext {font-weight: 600; letter-spacing: 0;}",
-        ".multicolumn-card__info {padding: 1rem 2.5rem 0;}",
-        "li:not(:last-child) .multicolumn-card.content-container {border-right: 1px solid #e5e5e5;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "image_width": "third",
         "image_ratio": "circle",
         "button_label": "",

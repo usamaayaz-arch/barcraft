@@ -38,7 +38,7 @@
   {% endif %}
 {% endfor %}
 
-=======
+
     {% assign announcement_count = 0 %}
     {% assign first_announcement = null %}
 
@@ -62,7 +62,7 @@
 
 
         
-=======
+
 
       >
         {%- if first_announcement.settings.text != blank -%}
@@ -200,7 +200,7 @@
 
       @media screen and (max-width: 990px) {
         .url_link.link {
-=======
+
       .page-width.utility-bar__grid.utility-bar__grid--3-col .list-unstyled.list-social .list-social__item:nth-child(1) .link.list-social__link{
           padding: 0 0 0 1.8rem;
         }
@@ -246,7 +246,7 @@
         {%- for block in section.blocks -%}
           {%- if block.type == 'url_link' -%}
             <a href="{{ block.settings.url_link }}" style="color: white;">{{ block.settings.url_link_label }}</a>
-=======
+
       <div class="url_links">
         {%- for block in section.blocks -%}
           {%- if block.type == 'url_link' -%}

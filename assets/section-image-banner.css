@@ -499,3 +499,14 @@
     right: 6rem;
     z-index: 2;
 }
+
+@media screen and (max-width: 440px) {
+  .image__banner-watermark{
+    position: absolute;
+    z-index: 2;
+    top: 3px !important;
+    left:3px !important;
+    width: 10rem !important;
+}
+
+}

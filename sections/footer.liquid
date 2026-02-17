@@ -100,6 +100,7 @@
                         {%- for link in block.settings.menu.links -%}
                           <li>
                             <a
+                              style="  color: #f9f9f999;"
                               href="{{ link.url }}"
                               class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                             >
@@ -191,6 +192,12 @@
                       margin: unset !important;
                     }
                   }
+                  @media screen and (max-width: 425px) {
+                    .footer-block__newsletter {
+                      width: 100% !important;
+                      margin: unset !important;
+                    }
+                  }
                 </style>
                 <div style="margin-left: auto;" class="footer-block__newsletter">
                   {%- if section.settings.newsletter_heading != blank -%}
@@ -211,7 +218,7 @@
                         }
                       }
                     </style>
-                    <h5 class="footer-block__subheading" style="text-align: left;width:35rem;">
+                    <h5 class="footer-block__subheading" style="text-align: left;width:35rem;font-size: 12px;">
                       {{ section.settings.newsletter_subheading }}
                     </h5>
                   {%- endif -%}
@@ -389,6 +396,7 @@
       .footer__localization {
         height: fit-content;
         width: fit-content;
+        gap: 24px;
       }
 
       .footer__column--info {
@@ -577,7 +585,7 @@
       }
 
 
-    @media (max-width: 425px) {
+    @media (max-width: 430px) {
       .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in.mobile-menu-disable {
         display: none !important;
       }

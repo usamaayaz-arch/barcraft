@@ -48,16 +48,23 @@
   margin: 0 auto;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
-  max-width: 73.4rem;
+  /* max-width: 73.4rem; */
+}
+
+@media screen and (max-width: 440px) {
+
+  .collapsible-content-wrapper-narrow {
+    padding: 0px 2rem !important;
+  }
 }
 
 .collapsible-content__header {
   word-break: break-word;
   margin-bottom: 3rem;
-      text-align: left;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .collapsible-content__heading {
@@ -71,7 +78,7 @@
   }
 }
 
-.collapsible-none-layout .accordion + .accordion {
+.collapsible-none-layout .accordion+.accordion {
   border-top: 0;
 }
 
@@ -79,7 +86,7 @@
   margin-top: 1rem;
 }
 
-.caption-with-letter-spacing + h2 {
+.caption-with-letter-spacing+h2 {
   margin-top: 1rem;
 }
 
@@ -117,6 +124,7 @@
 /* check for flexbox gap in older Safari versions */
 @supports not (inset: 10px) {
   @media screen and (min-width: 750px) {
+
     .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
     .collapsible-content__grid--reverse .collapsible-content__grid-item {
       padding-left: 5rem;
@@ -125,6 +133,7 @@
   }
 
   @media screen and (min-width: 990px) {
+
     .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
     .collapsible-content__grid--reverse .collapsible-content__grid-item {
       padding-left: 7rem;

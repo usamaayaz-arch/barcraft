@@ -4,14 +4,49 @@
 {%- style -%}
   @media screen and (max-width: 749px) {
     .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+      padding-bottom: calc({{settings.media_shadow_vertical_offset | at_least: 0}}px + 2rem);
     }
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="collection-hero__text-wrapper">
+<div
+  style="padding: {% if section.settings.barcraft_main_collection_banner_enable %}0rem;{% else %}inherit{% endif %}"
+  class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient"
+>
+  {% if section.settings.barcraft_main_collection_banner_enable %}
+    <style>
+      #shopify-section-{{ section.id }} .banner-enabled {
+        position: relative;
+        height: 35rem;
+      }
+
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .banner-enabled {
+          height: 20rem;
+        }
+      }
+    </style>
+  {% endif %}
+  <div
+    class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} {% if section.settings.barcraft_main_collection_banner_enable %}banner-enabled{% endif %}"
+  >
+    <div
+      style="{% if section.settings.barcraft_main_collection_banner_enable %}z-index:1;{% endif %} {% if section.settings.text_container_box == true %}width:100%;max-width:{{ section.settings.text_container_width }}rem;{% endif %}"
+      class="collection-hero__text-wrapper"
+    >
+      <style>
+        .collection-hero__title {
+          font-size: clamp(28px, 4vw, 36px);
+          line-height: 1.2;
+        }
+
+        .collection-hero__description.rte p {
+          font-size: clamp(14px, 2.5vw, 16px);
+          line-height: 1.6;
+          color: white;
+        }
+      </style>
+
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
@@ -23,7 +58,16 @@
     </div>
 
     {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
+      <div
+        style="{% if section.settings.barcraft_main_collection_banner_enable %}position: absolute;top: 0;bottom: 0;left: 0;right: 0;z-index: 0;margin: 0;{% endif %}"
+        class="collection-hero__image-container media gradient"
+      >
+        {% if section.settings.barcraft_main_collection_banner_enable %}
+          <div
+            style="display: block;background-color: black;z-index: 1;opacity:{{section.settings.media_shadow_vertical_offset}}"
+            class="overlay_collection_hero"
+          ></div>
+        {% endif %}
         <img
           srcset="
             {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -50,6 +94,37 @@
   "name": "t:sections.main-collection-banner.name",
   "class": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "barcraft_main_collection_banner_enable",
+      "default": false,
+      "label": "Enable Main Collection Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_container_box",
+      "default": false,
+      "label": "Enable Text Container Box"
+    },
+    {
+      "type": "range",
+      "id": "text_container_width",
+      "label": "Text Container Width",
+      "default": 47,
+      "min": 13,
+      "max": 50,
+      "step": 1,
+      "unit": "rem"
+    },
+    {
+      "type": "range",
+      "id": "media_shadow_vertical_offset",
+      "label": "Image Opacity offset",
+      "default": 0.3,
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
     {
       "type": "paragraph",
       "content": "t:sections.main-collection-banner.settings.paragraph.content"

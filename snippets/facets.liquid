@@ -59,11 +59,12 @@
                 <div class="active-facets-vertical-filter">
                   {%- unless results.filters == empty -%}
                     <h2
+                      style="display:none"
                       class="facets__heading facets__heading--vertical caption-large text-body"
                       id="verticalTitle"
                       tabindex="-1"
                     >
-                      {{ 'products.facets.filter_by_label' | t }}
+                      {% comment %} {{ 'products.facets.filter_by_label' | t }} {% endcomment %}
                     </h2>
                   {%- endunless -%}
                   <facet-remove class="active-facets__button-wrapper">
@@ -137,7 +138,18 @@
                       class="facets__summary caption-large focus-offset"
                       aria-label="{{ filter.label | escape }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
                     >
-                      <div>
+                      <style>
+                        .filter-row {
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                        }
+                        .filter-row svg {
+                          width: 1.2rem;
+                          height: 1.2rem;
+                        }
+                      </style>
+                      <div class="filter-row d-flex">
                         <span class="facets__summary-label">
                           {{- filter.label | escape }}
                           {%- if filter_type == 'vertical' -%}
@@ -151,7 +163,8 @@
                             {{ 'products.facets.filter_and_operator_subtitle' | t }}
                           </span>
                         {%- endif -%}
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                        {{- 'icon-plus.svg' | inline_asset_content -}}
+                        {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
                       </div>
                     </summary>
                     <div
@@ -274,7 +287,42 @@
                                 </label>
                               {%- endif -%}
                             </li>
+                            {%- liquid
+                              assign filter_param_name = value.param_name
+                            -%}
                           {%- endfor -%}
+                          <style>
+                            .reset__list__button:hover {
+                              text-decoration: underline;
+                              text-underline-offset: 4px;
+                            }
+                            .reset__list__button {
+                              background: unset;
+                              border: unset;
+                              cursor: pointer;
+                              color: #939393;
+                            }
+                          </style>
+                          <button type="button" data-value="{{filter_param_name}}" class="reset__list__button">
+                            Reset
+                          </button>
+                          <script>
+                            document.querySelectorAll('.reset__list__button').forEach(function (button) {
+                              button.addEventListener('click', function (event) {
+                                event.preventDefault();
+                                const parentList = button.closest('ul');
+                                console.log('parentList', parentList);
+                                if (parentList) {
+                                  const checkboxes = parentList.querySelectorAll(
+                                    '.list-menu__item.facets__item input[type="checkbox"]'
+                                  );
+                                  checkboxes.forEach(function (checkbox) {
+                                    checkbox.checked = false;
+                                  });
+                                }
+                              });
+                            });
+                          </script>
                         </ul>
                       </fieldset>
                       {%- if filter.values.size > show_more_number and filter_type == 'vertical' -%}
@@ -305,9 +353,20 @@
                     {% endif %}
                   >
                     <summary class="facets__summary caption-large focus-offset">
-                      <div>
+                      <style>
+                        .facet__summery__filter-row {
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                        }
+                        .facet__summery__filter-row svg {
+                          width: 1.2rem;
+                          height: 1.2rem;
+                        }
+                      </style>
+                      <div class="facet__summery__filter-row">
                         <span>{{ filter.label | escape }}</span>
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                        {{- 'icon-plus.svg' | inline_asset_content -}}
                       </div>
                     </summary>
                     <div
@@ -447,7 +506,7 @@
       <summary class="mobile-facets__open-wrapper focus-offset">
         <span class="mobile-facets__open{% if filter_type == 'drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}">
           <span class="svg-wrapper">
-            {{- 'icon-filter.svg' | inline_asset_content -}}
+            {{- 'filter_icon.svg' | inline_asset_content -}}
           </span>
           <span class="mobile-facets__open-label button-label medium-hide large-up-hide">
             {%- if enable_filtering and enable_sorting -%}
@@ -780,6 +839,30 @@
         </form>
       </facet-filters-form>
     </details>
+    <div
+      class="product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}"
+      role="status"
+    >
+      <h2 class="product-count__text text-body">
+        <span id="ProductCount">
+          {%- if results.results_count -%}
+            {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+          {%- elsif results.products_count == results.all_products_count -%}
+            {{
+              'products.facets.product_count_simple'
+              | t: count: results.products_count
+              | replace: 'Products', 'Result'
+            }}
+          {%- else -%}
+            {{
+              'products.facets.product_count'
+              | t: product_count: results.products_count, count: results.all_products_count
+            }}
+          {%- endif -%}
+        </span>
+      </h2>
+      {%- render 'loading-spinner' -%}
+    </div>
   </menu-drawer>
 
   <div class="active-facets active-facets-mobile medium-hide large-up-hide">
@@ -829,6 +912,11 @@
         <div class="facet-filters sorting caption small-hide">
           <div class="facet-filters__field">
             <h2 class="facet-filters__label caption-large text-body">
+              <style>
+                .facet-filters__label.caption-large.text-body label {
+                  font-weight: bold;
+                }
+              </style>
               <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
             </h2>
             <div class="select">
@@ -868,26 +956,28 @@
       </form>
     </facet-filters-form>
   {%- endif -%}
-  <div
-    class="product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}"
-    role="status"
-  >
-    <h2 class="product-count__text text-body">
-      <span id="ProductCount">
-        {%- if results.results_count -%}
-          {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
-        {%- elsif results.products_count == results.all_products_count -%}
-          {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
-        {%- else -%}
-          {{
-            'products.facets.product_count'
-            | t: product_count: results.products_count, count: results.all_products_count
-          }}
-        {%- endif -%}
-      </span>
-    </h2>
-    {%- render 'loading-spinner' -%}
-  </div>
+  {% comment %}
+    <div
+      class="product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}"
+      role="status"
+    >
+      <h2 class="product-count__text text-body">
+        <span id="ProductCount">
+          {%- if results.results_count -%}
+            {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+          {%- elsif results.products_count == results.all_products_count -%}
+            {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+          {%- else -%}
+            {{
+              'products.facets.product_count'
+              | t: product_count: results.products_count, count: results.all_products_count
+            }}
+          {%- endif -%}
+        </span>
+      </h2>
+      {%- render 'loading-spinner' -%}
+    </div>
+  {% endcomment %}
   {%- if filter_type == 'drawer' -%}
     <facet-filters-form class="facets facets-pill small-hide">
       <form id="FacetFiltersPillsForm" class="facets__form">

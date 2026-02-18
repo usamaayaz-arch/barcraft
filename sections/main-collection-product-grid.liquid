@@ -42,6 +42,72 @@
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
         <form class="facets-vertical-form" id="FacetSortForm">
+          <style>
+            .product-count-vertical.light {
+              display: flex;
+              align-items: center;
+            }
+
+            .filter_bar-left {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              max-width: 26rem;
+              border-right: 1.5px solid #e5e5e5;
+              padding-right: 2rem;
+              width: 100%;
+              height: 2rem;
+            }
+            .filter_bar-left .svg-wrapper svg {
+              width: 2rem;
+              height: 2rem;
+              margin-right: 1rem;
+            }
+            .filter_bar-left .svg-wrapper .filter-label {
+              font-size: 14px;
+              cursor: pointer;
+            }
+            .filter_bar-left .svg-wrapper .filter-label:hover {
+              text-decoration: underline;
+            }
+          </style>
+          <div class="filter_bar-left">
+            <span class="svg-wrapper">
+              {{- 'filter_icon.svg' | inline_asset_content -}}
+              <span role="button" class="vertical__filter filter-label">Show filters</span>
+            </span>
+            <script>
+              document.querySelector('.vertical__filter').addEventListener('click', function () {
+                let facetsWrapper = document.querySelector('.facets__form-vertical');
+                if (facetsWrapper.classList.contains('hidden')) {
+                  facetsWrapper.classList.remove('hidden');
+                } else {
+                  facetsWrapper.classList.add('hidden');
+                }
+                console.log('Filter button clicked',facetsWrapper);
+              });
+            </script>
+            <div class="product-count-vertical light" role="status">
+              <h2 class="product-count__text text-body">
+                <span id="ProductCountDesktop">
+                  {%- if collection.results_count -%}
+                    {{
+                      'templates.search.results_with_count'
+                      | t: terms: collection.terms, count: collection.results_count
+                    }}
+                  {%- elsif collection.products_count == collection.all_products_count -%}
+                    {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+                  {%- else -%}
+                    {{
+                      'products.facets.product_count'
+                      | t: product_count: collection.products_count, count: collection.all_products_count
+                    }}
+                  {%- endif -%}
+                </span>
+              </h2>
+              {%- render 'loading-spinner' -%}
+            </div>
+          </div>
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
               <h2 class="facet-filters__label caption-large text-body">
@@ -72,27 +138,34 @@
               </div>
             </div>
           </div>
-
-          <div class="product-count-vertical light" role="status">
-            <h2 class="product-count__text text-body">
-              <span id="ProductCountDesktop">
-                {%- if collection.results_count -%}
-                  {{
-                    'templates.search.results_with_count'
-                    | t: terms: collection.terms, count: collection.results_count
-                  }}
-                {%- elsif collection.products_count == collection.all_products_count -%}
-                  {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
-                {%- else -%}
-                  {{
-                    'products.facets.product_count'
-                    | t: product_count: collection.products_count, count: collection.all_products_count
-                  }}
-                {%- endif -%}
-              </span>
-            </h2>
-            {%- render 'loading-spinner' -%}
-          </div>
+          {% comment %}
+            <style>
+              .product-count-vertical.light {
+                display: flex;
+                align-items: center;
+              }
+            </style>
+            <div class="product-count-vertical light" role="status">
+              <h2 class="product-count__text text-body">
+                <span id="ProductCountDesktop">
+                  {%- if collection.results_count -%}
+                    {{
+                      'templates.search.results_with_count'
+                      | t: terms: collection.terms, count: collection.results_count
+                    }}
+                  {%- elsif collection.products_count == collection.all_products_count -%}
+                    {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+                  {%- else -%}
+                    {{
+                      'products.facets.product_count'
+                      | t: product_count: collection.products_count, count: collection.all_products_count
+                    }}
+                  {%- endif -%}
+                </span>
+              </h2>
+              {%- render 'loading-spinner' -%}
+            </div>
+          {% endcomment %}
         </form>
       </facet-filters-form>
     {%- endif -%}
@@ -233,7 +306,7 @@
           "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -374,6 +447,10 @@
         {
           "value": "drawer",
           "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+        },
+        {
+          "value": "custom_drawer",
+          "label": "Barcraft custom drawer"
         }
       ],
       "default": "horizontal",

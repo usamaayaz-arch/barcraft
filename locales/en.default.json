@@ -206,12 +206,12 @@
         "other": "{{ product_count }} of {{ count }} products"
       },
       "product_count_simple": {
-        "one": "{{ count }} product",
-        "other": "{{ count }} products"
+        "one": "{{ count }} Result",
+        "other": "{{ count }} Results"
       },
       "reset": "Reset",
       "sort_button": "Sort",
-      "sort_by_label": "Sort by:",
+      "sort_by_label": "Sort By:",
       "to": "To",
       "clear_filter": "Remove filter"
     }
@@ -234,8 +234,8 @@
         "other": "{{ count }} products"
       },
       "results_with_count": {
-        "one": "{{ count }} result",
-        "other": "{{ count }} results"
+        "one": "{{ count }} Result",
+        "other": "{{ count }} Results"
       },
       "results_with_count_and_term": {
         "one": "{{ count }} result found for “{{ terms }}”",

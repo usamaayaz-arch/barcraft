@@ -14,7 +14,7 @@
       "settings": {
         "barcraft_main_collection_banner_enable": true,
         "text_container_box": true,
-        "text_container_width": 47,
+        "text_container_width": 42,
         "media_shadow_vertical_offset": 0.6,
         "show_collection_description": true,
         "show_collection_image": true,
@@ -25,7 +25,7 @@
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 16,
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",

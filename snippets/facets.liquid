@@ -164,6 +164,7 @@
                           </span>
                         {%- endif -%}
                         {{- 'icon-plus.svg' | inline_asset_content -}}
+                        {{- 'icon-minus.svg' | inline_asset_content -}}
                         {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
                       </div>
                     </summary>
@@ -363,10 +364,27 @@
                           width: 1.2rem;
                           height: 1.2rem;
                         }
+
+                        .facets__summary .facet__summery__filter-row {
+                          position: relative;
+                        }
+
+                        .facets__summary .icon-minus {
+                          display: none;
+                        }
+
+                        details[open] .icon-plus {
+                          display: none;
+                        }
+
+                        details[open] .icon-minus {
+                          display: inline-block;
+                        }
                       </style>
                       <div class="facet__summery__filter-row">
                         <span>{{ filter.label | escape }}</span>
                         {{- 'icon-plus.svg' | inline_asset_content -}}
+                        {{- 'icon-minus.svg' | inline_asset_content -}}
                       </div>
                     </summary>
                     <div

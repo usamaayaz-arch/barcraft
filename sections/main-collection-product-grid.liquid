@@ -47,7 +47,6 @@
               display: flex;
               align-items: center;
             }
-
             .filter_bar-left {
               display: flex;
               align-items: center;
@@ -76,17 +75,6 @@
               {{- 'filter_icon.svg' | inline_asset_content -}}
               <span role="button" class="vertical__filter filter-label">Show filters</span>
             </span>
-            <script>
-              document.querySelector('.vertical__filter').addEventListener('click', function () {
-                let facetsWrapper = document.querySelector('.facets__form-vertical');
-                if (facetsWrapper.classList.contains('hidden')) {
-                  facetsWrapper.classList.remove('hidden');
-                } else {
-                  facetsWrapper.classList.add('hidden');
-                }
-                console.log('Filter button clicked',facetsWrapper);
-              });
-            </script>
             <div class="product-count-vertical light" role="status">
               <h2 class="product-count__text text-body">
                 <span id="ProductCountDesktop">
@@ -138,34 +126,6 @@
               </div>
             </div>
           </div>
-          {% comment %}
-            <style>
-              .product-count-vertical.light {
-                display: flex;
-                align-items: center;
-              }
-            </style>
-            <div class="product-count-vertical light" role="status">
-              <h2 class="product-count__text text-body">
-                <span id="ProductCountDesktop">
-                  {%- if collection.results_count -%}
-                    {{
-                      'templates.search.results_with_count'
-                      | t: terms: collection.terms, count: collection.results_count
-                    }}
-                  {%- elsif collection.products_count == collection.all_products_count -%}
-                    {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
-                  {%- else -%}
-                    {{
-                      'products.facets.product_count'
-                      | t: product_count: collection.products_count, count: collection.all_products_count
-                    }}
-                  {%- endif -%}
-                </span>
-              </h2>
-              {%- render 'loading-spinner' -%}
-            </div>
-          {% endcomment %}
         </form>
       </facet-filters-form>
     {%- endif -%}
@@ -267,7 +227,18 @@
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
-
+<script>
+  document.querySelector('.vertical__filter').addEventListener('click', function () {
+    let facetsWrapper = document.querySelector('.facets__form-vertical');
+    if (facetsWrapper.classList.contains('hidden')) {
+      document.querySelector('.facets-wrapper').style.paddingRight = '3rem';
+      facetsWrapper.classList.remove('hidden'); 
+    } else {
+      document.querySelector('.facets-wrapper').style.paddingRight = '0rem';
+      facetsWrapper.classList.add('hidden');
+    }
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",

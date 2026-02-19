@@ -186,7 +186,7 @@
         "button_6HgMKn"
       ],
       "custom_css": [
-        ".image-with-text__content.image-with-text__content--top {padding: 0rem; max-width: 53rem; margin: 0; place-content: center;}",
+        ".image-with-text__content.image-with-text__content--top {padding: 0rem; max-width: 45rem; margin: 0; place-content: center;}",
         ".image-with-text__text.rte.body p {padding: 0 1rem 0 0;}",
         ".image-with-text__text--caption + .image-with-text__heading {font-size: 36px;}"
       ],

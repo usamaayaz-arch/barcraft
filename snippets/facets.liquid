@@ -148,6 +148,17 @@
                           width: 1.2rem;
                           height: 1.2rem;
                         }
+                        .icon-minus {
+                          display: none;
+                        }
+
+                        details[open] .icon-plus {
+                          display: none;
+                        }
+
+                        details[open] .icon-minus {
+                          display: inline-block;
+                        }
                       </style>
                       <div class="filter-row d-flex">
                         <span class="facets__summary-label">
@@ -277,7 +288,7 @@
                                       {%- endif -%}
                                     </div>
                                   {%- else -%}
-                                    {{- 'square.svg' | inline_asset_content -}}
+                                    {{- 'square-icon.svg' | inline_asset_content -}}
 
                                     <div class="svg-wrapper">
                                       {{- 'icon-checkmark.svg' | inline_asset_content -}}
@@ -373,11 +384,11 @@
                           display: none;
                         }
 
-                        details[open] .icon-plus {
+                        details[open] summary .facet__summery__filter-row .icon-plus {
                           display: none;
                         }
 
-                        details[open] .icon-minus {
+                        details[open] summary .facet__summery__filter-row .icon-minus {
                           display: inline-block;
                         }
                       </style>
@@ -711,7 +722,7 @@
                                       </div>
                                     {%- else -%}
                                       <span class="mobile-facets__highlight"></span>
-                                      {{- 'square.svg' | inline_asset_content -}}
+                                      {{- 'square-icon.svg' | inline_asset_content -}}
                                       {{- 'icon-checkmark.svg' | inline_asset_content -}}
                                     {%- endif %}
 

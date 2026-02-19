@@ -73,10 +73,8 @@
               <div
                 class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}{% if block.settings.mobile_menu_flag == false %} mobile-menu-disable{% endif %}{% if block.settings.mobile_menu_flag == true %} mobile-menu-enable{% endif %}"
 
-                style="
-                  justify-self: {% if total_count == 2 %} center; {% elsif total_count == 1 %} left; {% else %} center; {% endif %}
-                  {% if settings.animations_reveal_on_scroll %} --animation-order: {{ forloop.index }}; {% endif %}
-                "
+                style="{% if settings.animations_reveal_on_scroll %} --animation-order: {{ forloop.index }}; {% endif %}"
+                  {% comment %} justify-self: {% if total_count == 2 %} center; {% elsif total_count == 1 %} left; {% else %} center; {% endif %} "{% endcomment %}
 
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}

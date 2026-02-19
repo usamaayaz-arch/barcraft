@@ -83,6 +83,7 @@
         "view_all_style": "solid",
         "color_scheme": "",
         "image_ratio": "adapt",
+        "object_fit": "cover",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -236,6 +237,7 @@
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
+        "object_fit": "cover",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -282,7 +284,7 @@
         "buttons_4aaE9m"
       ],
       "custom_css": [
-        ".banner__text.rte.body p {color: #a9a9a9b2;}",
+        ".banner__text.rte.body p {color: #a9a9a9b2; font-size: 14px;}",
         ".button {letter-spacing: 0;}",
         "@media (max-width: 756px) {.banner__text.rte.body {place-items: center; }}"
       ],
@@ -337,8 +339,7 @@
         ".image-with-text__media-item {width: auto;}",
         ".image-with-text__media {overflow: visible !important; border: unset; padding-right: 7rem !important; padding: unset; padding-bottom: unset !important;}",
         "@media (max-width: 468px) {.image-with-text__media img {transform: unset; margin: auto; padding-top: 4rem; } .image-with-text__media {padding-right: 0 !important; }}",
-        ".button {margin-top: 1rem !important; font-size: 14px;}",
-        ".image-with-text__content .image-with-text__text + .button {padding: 20px 52px;}"
+        ".button {margin-top: 1rem !important; font-size: 14px; padding: 20px 52px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -346,7 +347,7 @@
         "sub_heading_margin_top": 0,
         "text_boxes_border_radius": 4,
         "image_width": 20,
-        "image": "shopify://shop_images/image_18.png",
+        "image": "shopify://shop_images/image_18_3.png",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",

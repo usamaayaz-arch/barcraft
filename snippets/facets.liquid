@@ -308,20 +308,20 @@
                             Reset
                           </button>
                           <script>
-                            document.querySelectorAll('.reset__list__button').forEach(function (button) {
-                              button.addEventListener('click', function (event) {
-                                event.preventDefault();
-                                const parentList = button.closest('ul');
-                                console.log('parentList', parentList);
-                                if (parentList) {
-                                  const checkboxes = parentList.querySelectorAll(
-                                    '.list-menu__item.facets__item input[type="checkbox"]'
-                                  );
-                                  checkboxes.forEach(function (checkbox) {
-                                    checkbox.checked = false;
-                                  });
-                                }
+                            document.addEventListener('click', function (event) {
+                              const button = event.target.closest('.reset__list__button');
+                              if (!button) return;
+                              event.preventDefault();
+                              const parentFieldset = button.closest('fieldset');
+                              if (!parentFieldset) return;
+                              const form = button.closest('form');
+                              if (!form) return;
+                              const checkboxes = parentFieldset.querySelectorAll('input[type="checkbox"]:checked');
+                              if (!checkboxes.length) return;
+                              checkboxes.forEach((checkbox) => {
+                                checkbox.checked = false;
                               });
+                              form.dispatchEvent(new Event('input', { bubbles: true }));
                             });
                           </script>
                         </ul>

@@ -87,6 +87,7 @@ if (!customElements.get("barcraft-product-variant-selector")) {
 if (!customElements.get("barcraft-modal-popup")) {
   class ModalPopUp extends HTMLElement {
     constructor() {
+      console.log("Initializing ModalPopUp component");
       super();
       this.attachShadow({ mode: "open" });
 

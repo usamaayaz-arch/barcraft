@@ -4,26 +4,125 @@
 {%- style -%}
   @media screen and (max-width: 749px) {
     .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+      padding-bottom: calc({{settings.media_shadow_vertical_offset | at_least: 0}}px + 2rem);
     }
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="collection-hero__text-wrapper">
+<div
+  style="padding: {% if section.settings.barcraft_main_collection_banner_enable %}0rem;{% else %}inherit{% endif %}"
+  class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient"
+>
+  {% if section.settings.barcraft_main_collection_banner_enable %}
+    <style>
+      #shopify-section-{{ section.id }} .banner-enabled {
+        position: relative;
+        height: 28rem;
+      }
+
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .banner-enabled {
+          height: 20rem;
+        }
+      }
+    </style>
+  {% endif %}
+  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} {% if section.settings.barcraft_main_collection_banner_enable %}banner-enabled{% endif %}">
+    <div
+      style="{% if section.settings.barcraft_main_collection_banner_enable %}z-index:1;padding-top: 0;padding-bottom: 0;{% endif %} {% if section.settings.text_container_box == true %}width:100%;max-width:{{ section.settings.text_container_width }}rem;{% endif %}"
+      class="collection-hero__text-wrapper"
+    >
+      {% if section.settings.barcraft_main_collection_banner_enable %}
+        <style>
+          .collection-hero__title {
+            font-size: clamp(20px, 4vw, 36px);
+            line-height: 1.2;
+          }
+
+          .collection-hero__description.rte p {
+            font-size: clamp(10px, 2.5vw, 16px);
+            line-height: 1.6;
+            color: white;
+          }
+
+          @media screen and (max-width: 749px) {
+            .collection-hero__text-wrapper {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: flex-end;
+              height: fit-content;
+              width: calc(100% - 3rem) !important;
+              z-index: 1;
+              padding-top: 0;
+              padding-bottom: 0;
+              width: 100%;
+              max-width: 42rem;
+              position: absolute;
+              bottom: 26px;
+            }
+          }
+        </style>
+      {% endif %}
+
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
       </h1>
 
       {%- if section.settings.show_collection_description -%}
+        {% if section.settings.text_container_box == true %}
+          <style>
+            .collection-hero__description.rte {
+              margin: 8px 0 0 0;
+              letter-spacing: 0;
+            }
+          </style>
+        {% endif %}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
       {%- endif -%}
     </div>
 
     {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
+      <div
+        style="{% if section.settings.barcraft_main_collection_banner_enable %}position: absolute;top: 0;bottom: 0;left: 0;right: 0;z-index: 0;margin: 0;{% endif %}"
+        class="collection-hero__image-container media gradient"
+      >
+        {% if section.settings.barcraft_main_collection_banner_enable %}
+          <style>
+            @media screen and (max-width: 749px) {
+            .collection-hero__breadcrumb {
+              left: 1.5rem !important;
+            
+            }
+            }
+            .collection-hero__breadcrumb {
+              position: absolute !important;
+              z-index: 3;
+              font-size: 1rem;
+              top: 2rem !important;
+            }
+            .collection-hero__breadcrumb .collection-hero__breadcrumb_link {
+              color: #f9f9f966;
+              text-decoration: unset;
+            }
+          </style>
+          <span style="left: 5.5rem" class="collection-hero__breadcrumb">
+            <a class="collection-hero__breadcrumb_link" href="/collections">Home / </a>
+            <a class="collection-hero__breadcrumb_link" href="{{ collection.url }}">{{ collection.title }}</a></span
+          >
+        {% endif %}
+        {% if section.settings.barcraft_main_collection_banner_enable %}
+          <style>
+            .overlay_collection_hero{
+              display: block;
+              background-color: black;
+              z-index: 1;
+              opacity:{{section.settings.media_shadow_vertical_offset}}
+            }
+          </style>
+          <div class="overlay_collection_hero"></div>
+        {% endif %}
         <img
           srcset="
             {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -50,6 +149,37 @@
   "name": "t:sections.main-collection-banner.name",
   "class": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "barcraft_main_collection_banner_enable",
+      "default": false,
+      "label": "Enable Main Collection Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_container_box",
+      "default": false,
+      "label": "Enable Text Container Box"
+    },
+    {
+      "type": "range",
+      "id": "text_container_width",
+      "label": "Text Container Width",
+      "default": 47,
+      "min": 13,
+      "max": 50,
+      "step": 1,
+      "unit": "rem"
+    },
+    {
+      "type": "range",
+      "id": "media_shadow_vertical_offset",
+      "label": "Image Opacity offset",
+      "default": 0.3,
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
     {
       "type": "paragraph",
       "content": "t:sections.main-collection-banner.settings.paragraph.content"

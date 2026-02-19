@@ -7,18 +7,26 @@
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
+
 @font-face {
   font-family: "Inter";
   src: url("{{ 'Inter-Regular.woff2' | file_url }}") format("woff2"),
-       url("{{ 'Inter-Regular.woff'  | file_url }}") format("woff");
+  url("{{ 'Inter-Regular.woff'  | file_url }}") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+
 body {
   font-family: "Inter", sans-serif;
 }
-h1, h2, h3 ,h4 ,h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Inter", sans-serif;
 }
 
@@ -2346,6 +2354,15 @@ input[type='checkbox'] {
   }
 }
 
+.d-flex {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 /* section-header */
 .section-header.shopify-section-group-header-group {
   z-index: 3;
@@ -2851,8 +2868,8 @@ details[open]>.header__submenu {
   text-underline-offset: 0.3rem;
 } */
 .header__menu-item:hover span {
-    text-decoration: underline;
-    text-underline-offset: 2.75rem;
+  text-decoration: underline;
+  text-underline-offset: 2.75rem;
 }
 
 details[open]>.header__menu-item {

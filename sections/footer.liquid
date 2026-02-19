@@ -340,23 +340,52 @@
             {%- endform -%}
           </localization-form>
         {%- endif -%}
+        <div class="footer__column footer__column--info">
+          {%- if section.settings.payment_enable -%}
+            <div class="footer__payment">
+              <span style="color: #F9F9F966;font: status-bar;" class="visually-hidden-visible">
+                {{- 'sections.footer.payment' | t | replace: 'methods', 'Available ' -}}
+              </span>
+              <ul class="list list-payment" style="gap:4px" role="list">
+                {%- for type in shop.enabled_payment_types -%}
+                  <li class="list-payment__item">
+                    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        </div>
       </div>
-      <div class="footer__column footer__column--info">
-        {%- if section.settings.payment_enable -%}
-          <div class="footer__payment">
-            <span style="color: #F9F9F966;font: status-bar;" class="visually-hidden-visible">
-              {{- 'sections.footer.payment' | t | replace: 'methods', 'Available ' -}}
-            </span>
-            <ul class="list list-payment" style="gap:4px" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
-      </div>
+      <style>
+        .footer__column.footer__column--info {
+          margin-left: 15rem;
+          padding-left: 8px;
+        }
+        @media (max-width: 768px) {
+          .footer__column.footer__column--info {
+            margin-left: 0rem !important;
+          }
+        }
+      </style>
+      {% comment %}
+        <div class="footer__column footer__column--info">
+          {%- if section.settings.payment_enable -%}
+            <div class="footer__payment">
+              <span style="color: #F9F9F966;font: status-bar;" class="visually-hidden-visible">
+                {{- 'sections.footer.payment' | t | replace: 'methods', 'Available ' -}}
+              </span>
+              <ul class="list list-payment" style="gap:4px" role="list">
+                {%- for type in shop.enabled_payment_types -%}
+                  <li class="list-payment__item">
+                    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        </div>
+      {% endcomment %}
       <div class="footer__column footer__column--social">
         {%- if section.settings.show_social and has_social_icons -%}
           <div style="color: #F9F9F966;font: status-bar;">Join Our Social Media</div>
@@ -411,6 +440,10 @@
   .footer__column.footer__column--social {
     width: fit-content;
     margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
   }
 
   .footer__content-bottom-wrapper {
@@ -423,9 +456,17 @@
     width: 100%;
   }
 
+  .list-payment {
+    justify-content: flex-start;
+  }
+
   .list-payment__item svg {
     width: 6rem;
     height: 3.6rem;
+  }
+
+  .list-social {
+    gap: 10px;
   }
 
   .list-social__link {
@@ -435,10 +476,6 @@
   .link.list-social__link .svg-wrapper svg {
     height: 2.5rem;
     width: 2.5rem;
-  }
-
-  .list-social {
-    gap: 10px;
   }
 
   .accordion__title {
@@ -459,25 +496,6 @@
     gap: 24px;
   }
 
-  .list-payment {
-    justify-content: flex-start;
-  }
-
-  .footer__column.footer__column--social {
-      width: fit-content;
-      margin-left: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 14px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .footer__column.footer__column--social {
-      align-items: flex-start;
-    }
-  }
-
   .policies.list-unstyled li .copyright__content {
     color: #f9f9f9;
   }
@@ -486,6 +504,7 @@
   .footer-block__heading.inline-richtext {
     text-align: left;
     width: fit-content;
+    font-size: 16px !important;
   }
 
   .footer-block__heading.rte,
@@ -527,9 +546,6 @@
   .footer-block.grid__item.scroll-trigger.animate--slide-in:nth-child(1) {
     text-align: left;
   }
-  .footer-block__heading.inline-richtext {
-      font-size: 16px !important;
-  }
 
   @media screen and (max-width: 749px) {
     .footer__list-social.list-social,
@@ -546,11 +562,29 @@
     }
   }
 
-  @media screen and (min-width: 750px) {
-    .list-payment {
-      justify-content: flex-start;
+  @media screen and (max-width: 768px) {
+    .footer__column.footer__column--social {
+      align-items: flex-start;
     }
 
+    .footer__content-top.page-width
+    .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer__blocks-wrapper.grid {
+      gap: 0;
+    }
+
+    .footer-block.grid__item {
+      margin: 0;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
     .footer__localization h2 {
       margin: 1rem 0 0;
       color: #f9f9f966;
@@ -566,26 +600,10 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .footer__content-top.page-width
-    .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.scroll-trigger.animate--slide-in {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    .footer__blocks-wrapper.grid {
-      gap: 0;
-    }
-    .footer-block.grid__item {
-      margin: 0;
-    }
-  }
-
   .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in.mobile-menu-enable,
   .footer-block.grid__item.footer-block--menu.scroll-trigger.animate--slide-in.mobile-menu-disable {
     display: block;
-        justify-self: center;
+    justify-self: center;
   }
 
   @media (max-width: 430px) {
@@ -598,6 +616,7 @@
     }
   }
 </style>
+
 {% schema %}
 {
   "name": "t:sections.footer.name",

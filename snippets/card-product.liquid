@@ -60,31 +60,6 @@
       >
         {%- if card_product.featured_media -%}
           {% if quick_add == 'custom_quick_add' %}
-            <style>
-              .card.card--standard.card--media:hover .card__inner .quick_view_btn {
-                display: block;
-              }
-              
-              .quick_view_btn:hover {
-                cursor:pointer;
-                text-decoration:underline;
-              }
-              .quick_view_btn {
-                display: none;
-                position: absolute;
-                z-index: 1;
-                bottom: 1rem;
-                left: 0;
-                right: 0;
-                background: #7e7564;
-                color: #f9f9f9;
-                border-radius: 4px;
-                width: calc(100% - 1rem);
-                padding: 1rem;
-                justify-self: center;
-                text-align: center;
-              }
-            </style>
             <div
               data-variant="{{ card_product.selected_or_first_available_variant | json | escape }}"
               data-product="{{ card_product | json | escape }}"
@@ -93,15 +68,15 @@
             >
               QUICK VIEW
             </div>
-             <script>
-            document.addEventListener('click', function (e) {
-              const button = e.target.closest('.quick_view_btn');
-              if (!button) return;
-              const product = JSON.parse(button.dataset.product);
-              const variant = button.dataset.variant ? JSON.parse(button.dataset.variant) : null;
-              document.getElementById('productQuickView').show(product, variant);
-            });
-          </script>
+            <script>
+              document.addEventListener('click', function (e) {
+                const button = e.target.closest('.quick_view_btn');
+                if (!button) return;
+                const product = JSON.parse(button.dataset.product);
+                const variant = button.dataset.variant ? JSON.parse(button.dataset.variant) : null;
+                document.getElementById('productQuickView').show(product, variant);
+              });
+            </script>
             {% comment %}
               <div
                 data-variant="{{ card_product.selected_or_first_available_variant | json | escape }}"
@@ -722,6 +697,29 @@
 {%- endif -%}
 
 <style>
+  .card.card--standard.card--media:hover .card__inner .quick_view_btn {
+    display: block;
+  }
+
+  .quick_view_btn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .quick_view_btn {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    background: #7e7564;
+    color: #f9f9f9;
+    border-radius: 4px;
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    justify-self: center;
+    text-align: center;
+  }
   .variant-color--active {
     border: 1px solid #000;
   }

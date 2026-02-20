@@ -56,9 +56,67 @@
     >
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
-        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; {% if horizontal_class == false %}margin-top:3rem;background: unset;max-width: 322px;max-height: 419px;width: 100%;height: 100%;{% else %} height:100%{% endif %}">
+        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; {% if horizontal_class == false %}margin-top:3rem;background: unset;max-width: 322px;max-height: 419px;width: 100%;height: 100%;{% else %} height:100%{% endif %}"
+      >
         {%- if card_product.featured_media -%}
-          <div style="border-top-left-radius: 4px;border-top-right-radius: 4px;" class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+          {% if quick_add == 'custom_quick_add' %}
+            <style>
+              .card.card--standard.card--media:hover .card__inner .quick_view_btn {
+                display: block;
+              }
+              
+              .quick_view_btn:hover {
+                cursor:pointer;
+                text-decoration:underline;
+              }
+              .quick_view_btn {
+                display: none;
+                position: absolute;
+                z-index: 1;
+                bottom: 1rem;
+                left: 0;
+                right: 0;
+                background: #7e7564;
+                color: #f9f9f9;
+                border-radius: 4px;
+                width: calc(100% - 1rem);
+                padding: 1rem;
+                justify-self: center;
+                text-align: center;
+              }
+            </style>
+            <div
+              data-variant="{{ card_product.selected_or_first_available_variant | json | escape }}"
+              data-product="{{ card_product | json | escape }}"
+              data-product-id="{{ card_product.id }}"
+              class="quick_view_btn"
+            >
+              QUICK VIEW
+            </div>
+             <script>
+            document.addEventListener('click', function (e) {
+              const button = e.target.closest('.quick_view_btn');
+              if (!button) return;
+              const product = JSON.parse(button.dataset.product);
+              const variant = button.dataset.variant ? JSON.parse(button.dataset.variant) : null;
+              document.getElementById('productQuickView').show(product, variant);
+            });
+          </script>
+            {% comment %}
+              <div
+                data-variant="{{ card_product.selected_or_first_available_variant | json | escape }}"
+                data-product="{{ card_product | json | escape }}"
+                data-product-id="{{ card_product.id }}"
+                class="quick_add_popper"
+              >
+                Quick View
+              </div>
+            {% endcomment %}
+          {% endif %}
+          <div
+            style="border-top-left-radius: 4px;border-top-right-radius: 4px;"
+            class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}"
+          >
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
@@ -146,29 +204,9 @@
               </a>
             </h3>
           </div>
-          {% comment %}
-            <div class="card__badge {{ settings.badge_position }}">
-              {%- if card_product.available == false -%}
-                <span
-                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-                >
-                  {{- 'products.product.sold_out' | t -}}
-                </span>
-              {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-                <span
-                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-                >
-                  {{- 'products.product.on_sale' | t -}}
-                </span>
-              {%- endif -%}
-            </div>
-          {% endcomment %}
         </div>
       </div>
       <div style="width:100%;max-width:322px;" class="card__content">
-        
         <div class="card__information">
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
@@ -605,35 +643,6 @@
               </modal-dialog>
             </div>
           {% endif %}
-        {% elsif quick_add == 'custom_quick_add' %}
-          <div
-            data-variant="{{ card_product.selected_or_first_available_variant | json | escape }}"
-            data-product="{{ card_product | json | escape }}"
-            data-product-id="{{ card_product.id }}"
-            class="quick_add_popper"
-          >
-            Quick View
-          </div>
-          {% comment %}
-            <script>
-              document.querySelectorAll('.quick_add_popper').forEach((button) => {
-                button.addEventListener('click', () => {
-                  const product = JSON.parse(button.dataset.product);
-                  const variant = button.dataset.variant ? JSON.parse(button.dataset.variant) : null;
-                  document.getElementById('productQuickView').show(product, variant);
-                });
-              });
-            </script>
-          {% endcomment %}
-          <script>
-            document.addEventListener('click', function (e) {
-              const button = e.target.closest('.quick_add_popper');
-              if (!button) return;
-              const product = JSON.parse(button.dataset.product);
-              const variant = button.dataset.variant ? JSON.parse(button.dataset.variant) : null;
-              document.getElementById('productQuickView').show(product, variant);
-            });
-          </script>
         {% endif %}
 
         <div class="card__badge {{ settings.badge_position }}">
@@ -713,28 +722,6 @@
 {%- endif -%}
 
 <style>
-  .card--standard.card--media:hover .card__content .quick_add_popper {
-    display: unset;
-  }
-  .quick_add_popper:hover {
-    text-decoration: underline;
-    text-underline-position: under;
-  }
-  .quick_add_popper {
-    background: #7e7564;
-    padding: 1.5rem;
-    position: absolute;
-    width: calc(100% - 1rem);
-    max-width:322px;
-    justify-self: center;
-    text-align: center;
-    color: #f9f9f9;
-    bottom: 11rem;
-    z-index: 1;
-    cursor: pointer;
-    border-radius: 4px;
-    display: none;
-  }
   .variant-color--active {
     border: 1px solid #000;
   }

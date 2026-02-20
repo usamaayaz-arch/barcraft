@@ -1,0 +1,86 @@
+{%- render 'custom-video', section: section -%}
+
+{% schema %}
+{
+  "name": "Custom Video",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "video_section_heading",
+      "label": "Header"
+    },
+    {
+      "type": "select",
+      "id": "header_size",
+      "label": "Header size",
+      "options": [
+        {
+          "value": "x-small",
+          "label": "X-small"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "X-large"
+        },
+        {
+          "value": "xx-large",
+          "label": "XX-large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "label": "Video Loop",
+      "id": "video_loop_flag"
+    },
+    {
+      "type": "header",
+      "content": "Video Via Shopify"
+    },
+    {
+      "type": "video",
+      "id": "custom_video",
+      "label": "Video"
+    },
+    {
+      "type": "header",
+      "content": "Embedded Video from URL",
+      "info": "Add url from youtube"
+    },
+    {
+      "type": "video_url",
+      "id": "custom_video_url",
+      "label": "Video",
+      "accept": ["youtube"]
+    },
+    {
+      "type": "image_picker",
+      "id": "video_thumbnail",
+      "label": "Thumbnail"
+    },
+    {
+      "type": "text",
+      "id": "video_alt_thumbnail",
+      "label": "Video Alternate Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Video"
+    }
+  ]
+}
+{% endschema %}

@@ -107,7 +107,7 @@ if (!customElements.get("barcraft-modal-popup")) {
           #qv-color { font-size: clamp(1rem, 4vw, 1.5rem); font-weight: 600;margin: 0; }
           #qv-quantity-selector { width: fit-content;padding: 1rem;border: 1px solid #000; display: flex; align-items: center; }
           #qv-quantity-selector button { background: unset; border: unset; padding: 5px 12px; }
-          #qv-quantity-selector input { width: 4rem !important;padding-left: 13px; text-align: center; border: none; }
+          #qv-quantity-selector input { width: 4rem !important;padding-left: 13px; text-align: center; border: none;outline:none; }
           button { cursor: pointer; }
         </style>
 
@@ -152,9 +152,7 @@ if (!customElements.get("barcraft-modal-popup")) {
       this.increaseBtn = this.shadowRoot.getElementById("increase-qty-btn");
       this.decreaseBtn = this.shadowRoot.getElementById("decrease-qty-btn");
       this.qtyInput = this.shadowRoot.getElementById("item-quantity");
-      this.hiddenQtyInput = this.shadowRoot.getElementById(
-        "selected-product-quantity",
-      );
+      this.hiddenQtyInput = this.shadowRoot.getElementById("selected-product-quantity");
       this.addToCartBtn = this.shadowRoot.getElementById("add-to-cart-btn");
 
       this.increaseBtn.addEventListener("click", () => {
@@ -198,32 +196,20 @@ if (!customElements.get("barcraft-modal-popup")) {
       this.increaseBtn.disabled = !available || qty >= this.MAX_QTY;
       this.addToCartBtn.disabled = !available;
 
-      this.decreaseBtn.style.cursor = this.decreaseBtn.disabled
-        ? "not-allowed"
-        : "pointer";
-      this.increaseBtn.style.cursor = this.increaseBtn.disabled
-        ? "not-allowed"
-        : "pointer";
-      this.addToCartBtn.style.cursor = this.addToCartBtn.disabled
-        ? "not-allowed"
-        : "pointer";
+      this.decreaseBtn.style.cursor = this.decreaseBtn.disabled ? "not-allowed" : "pointer";
+      this.increaseBtn.style.cursor = this.increaseBtn.disabled ? "not-allowed" : "pointer";
+      this.addToCartBtn.style.cursor = this.addToCartBtn.disabled ? "not-allowed" : "pointer";
     }
 
     show(product, variant) {
       this.variant = variant;
       this.updateQty(1);
       this.shadowRoot.getElementById("qv-title").textContent = product.title;
-      this.shadowRoot.getElementById("qv-color").textContent =
-        variant && variant.option1 !== "Default Title" ? variant.option1 : "";
+      this.shadowRoot.getElementById("qv-color").textContent = variant && variant.option1 !== "Default Title" ? variant.option1 : "";
       const price = variant ? variant.price : product.price;
-      this.shadowRoot.getElementById("qv-price").textContent =
-        this.formatMoney(price);
-      this.shadowRoot.getElementById("qv-image").src =
-        variant?.featured_image?.src ||
-        product?.images?.[0] ||
-        "https://via.placeholder.com/400x400?text=No+Image";
-      this.shadowRoot.getElementById("selected-product-id").value =
-        variant?.id || product?.id || "";
+      this.shadowRoot.getElementById("qv-price").textContent = this.formatMoney(price);
+      this.shadowRoot.getElementById("qv-image").src = variant?.featured_image?.src || product?.images?.[0] || "https://via.placeholder.com/400x400?text=No+Image";
+      this.shadowRoot.getElementById("selected-product-id").value = variant?.id || product?.id || "";
       this.modal.classList.add("active");
       document.body.style.overflow = "hidden";
       this.updateButtons();
@@ -250,9 +236,7 @@ if (!customElements.get("barcraft-modal-popup")) {
       fetch("/cart/add.js", {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: {Accept: "application/json"},
       })
         .then((response) => {
           if (!response.ok) throw new Error("Network response was not ok");

@@ -38,6 +38,7 @@
           "type": "quantity_selector",
           "settings": {}
         },
+<<<<<<< HEAD
         "complementary_YrhnQb": {
           "type": "complementary",
           "settings": {
@@ -51,6 +52,8 @@
             "enable_quick_add": false
           }
         },
+=======
+>>>>>>> usama-dev
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -58,6 +61,22 @@
             "show_gift_card_recipient": true
           }
         },
+<<<<<<< HEAD
+=======
+        "complementary_nbjDP7": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Add on product",
+            "make_collapsible_row": true,
+            "icon": "box",
+            "product_list_limit": 10,
+            "products_per_page": 1,
+            "pagination_style": "numbers",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        },
+>>>>>>> usama-dev
         "description": {
           "type": "description",
           "settings": {}
@@ -75,8 +94,13 @@
         "price",
         "variant_picker",
         "quantity_selector",
+<<<<<<< HEAD
         "complementary_YrhnQb",
         "buy_buttons",
+=======
+        "buy_buttons",
+        "complementary_nbjDP7",
+>>>>>>> usama-dev
         "description",
         "share"
       ],

@@ -176,6 +176,17 @@
         </localization-form>
       {%- endif -%}
     </div>
+    {%- if section.settings.url_links_flag -%}
+      <div class="url_links">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'url_link' -%}
+            <a style="font-size:12px;" href="{{ block.settings.url_link }}" class="link" >{{ block.settings.url_link_label }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
     <style>
       .page-width.utility-bar__grid.utility-bar__grid--3-col .list-unstyled.list-social .list-social__item:nth-child(1) .link.list-social__link{
           padding: 0 0 0 1.8rem;
@@ -212,18 +223,6 @@
         }
       }
     </style>
-    {%- if section.settings.url_links_flag -%}
-      <div class="url_links">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'url_link' -%}
-            <a href="{{ block.settings.url_link }}" class="link" >{{ block.settings.url_link_label }}</a>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-  </div>
-</div>
-
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",

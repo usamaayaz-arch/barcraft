@@ -69,7 +69,7 @@ if (!customElements.get("barcraft-product-variant-selector")) {
       const card = event.target.closest(".card.card--standard.card--media");
       if (!card) return;
 
-      const quickAddPopper = card.querySelector(".quick_add_popper");
+      const quickAddPopper = card.querySelector(".quick_view_btn");
       if (!quickAddPopper) return;
 
       console.log("Updating quick add popper with variant:", selectedVariant);
@@ -87,6 +87,7 @@ if (!customElements.get("barcraft-product-variant-selector")) {
 if (!customElements.get("barcraft-modal-popup")) {
   class ModalPopUp extends HTMLElement {
     constructor() {
+      console.log("Initializing ModalPopUp component");
       super();
       this.attachShadow({ mode: "open" });
 
@@ -97,8 +98,11 @@ if (!customElements.get("barcraft-modal-popup")) {
           .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
           .content { position: relative; background: #fff; width: 90%; max-width: 80rem; min-width: 30rem; margin: 10vh auto; padding: 20px; z-index: 2; }
           .close { position: absolute; top: 10px; right: 10px; cursor: pointer; background: unset; font-size: x-large; border: unset; }
-          #qv-content { margin: 2rem; display: flex; flex-wrap: wrap; gap: 16px; }
-          #qv-image { width: 100%; max-width: 200px; min-width: 200px; height: auto; }
+          #qv-content { margin: 2rem; display: flex;flex-wrap: nowrap; gap: 16px; }
+          @media screen and (max-width:765px){
+          #qv-content { flex-wrap:wrap; }
+          }
+          #qv-image { width: 100%;max-width: 300px;min-width: 200px;height: 100%;border: 1px solid #f1f1f1; }
           #qv-title { margin: 0; font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 600; }
           #qv-color { font-size: clamp(1rem, 4vw, 1.5rem); font-weight: 600;margin: 0; }
           #qv-quantity-selector { width: fit-content;padding: 1rem;border: 1px solid #000; display: flex; align-items: center; }

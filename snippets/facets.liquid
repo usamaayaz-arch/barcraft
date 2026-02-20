@@ -148,6 +148,17 @@
                           width: 1.2rem;
                           height: 1.2rem;
                         }
+                        .icon-minus {
+                          display: none;
+                        }
+
+                        details[open] .icon-plus {
+                          display: none;
+                        }
+
+                        details[open] .icon-minus {
+                          display: inline-block;
+                        }
                       </style>
                       <div class="filter-row d-flex">
                         <span class="facets__summary-label">
@@ -277,7 +288,7 @@
                                       {%- endif -%}
                                     </div>
                                   {%- else -%}
-                                    {{- 'square.svg' | inline_asset_content -}}
+                                    {{- 'square-icon.svg' | inline_asset_content -}}
 
                                     <div class="svg-wrapper">
                                       {{- 'icon-checkmark.svg' | inline_asset_content -}}
@@ -308,20 +319,20 @@
                             Reset
                           </button>
                           <script>
-                            document.querySelectorAll('.reset__list__button').forEach(function (button) {
-                              button.addEventListener('click', function (event) {
-                                event.preventDefault();
-                                const parentList = button.closest('ul');
-                                console.log('parentList', parentList);
-                                if (parentList) {
-                                  const checkboxes = parentList.querySelectorAll(
-                                    '.list-menu__item.facets__item input[type="checkbox"]'
-                                  );
-                                  checkboxes.forEach(function (checkbox) {
-                                    checkbox.checked = false;
-                                  });
-                                }
+                            document.addEventListener('click', function (event) {
+                              const button = event.target.closest('.reset__list__button');
+                              if (!button) return;
+                              event.preventDefault();
+                              const parentFieldset = button.closest('fieldset');
+                              if (!parentFieldset) return;
+                              const form = button.closest('form');
+                              if (!form) return;
+                              const checkboxes = parentFieldset.querySelectorAll('input[type="checkbox"]:checked');
+                              if (!checkboxes.length) return;
+                              checkboxes.forEach((checkbox) => {
+                                checkbox.checked = false;
                               });
+                              form.dispatchEvent(new Event('input', { bubbles: true }));
                             });
                           </script>
                         </ul>
@@ -373,11 +384,11 @@
                           display: none;
                         }
 
-                        details[open] .icon-plus {
+                        details[open] summary .facet__summery__filter-row .icon-plus {
                           display: none;
                         }
 
-                        details[open] .icon-minus {
+                        details[open] summary .facet__summery__filter-row .icon-minus {
                           display: inline-block;
                         }
                       </style>
@@ -711,7 +722,7 @@
                                       </div>
                                     {%- else -%}
                                       <span class="mobile-facets__highlight"></span>
-                                      {{- 'square.svg' | inline_asset_content -}}
+                                      {{- 'square-icon.svg' | inline_asset_content -}}
                                       {{- 'icon-checkmark.svg' | inline_asset_content -}}
                                     {%- endif %}
 

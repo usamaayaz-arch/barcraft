@@ -27,7 +27,7 @@
       }
     </style>
   {% endif %}
-  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} {% if section.settings.barcraft_main_collection_banner_enable %}banner-enabled{% endif %}">
+  <div style="{%  if collection.featured_image == nil %}display:none !important{% endif %}" class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} {% if section.settings.barcraft_main_collection_banner_enable %}banner-enabled{% endif %}">
     <div
       style="{% if section.settings.barcraft_main_collection_banner_enable %}z-index:1;padding-top: 0;padding-bottom: 0;{% endif %} {% if section.settings.text_container_box == true %}width:100%;max-width:{{ section.settings.text_container_width }}rem;{% endif %}"
       class="collection-hero__text-wrapper"

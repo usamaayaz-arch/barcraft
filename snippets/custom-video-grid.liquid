@@ -1,3 +1,4 @@
+<div class="main">
 <custom-video-grid>
   <div class="heading heading-{{ section.settings.header_size }}">{{ section.settings.video_section_heading }}</div>
   <div class="video-container">
@@ -17,17 +18,17 @@
             | video_tag:
               image_size: '1024x1024',
               loop: section.settings.video_loop_flag,
-              controls: false,
+              controls: section.settings.video_control_flag,
               autoplay: true,
-              muted: true,
+              muted: block.settings.is_muted_flag,
               playsinline: true
           }}
-          {%- if block.settings.video_thumbnail -%}
+          {%- if block.settings.video_thumbnail and section.settings.video_control_flag == false -%}
             <div class="thumbnail_overlay">
               <span class="play_button">{{ 'icon-play.svg' | inline_asset_content }}</span>
               <span style="display:none" class="pause_button">{{ 'icon-pause.svg' | inline_asset_content }}</span>
               <img
-                style="height:{{section.settings.video_height}}rem;width: 100%;position: absolute;top: 0;bottom: 0;"
+                style="max-height:{{section.settings.video_height}}rem;height:100%"
                 src="{{block.settings.video_thumbnail | image_url}}"
                 alt="{{ block.settings.video_alt_thumbnail }}"
                 width="auto"
@@ -39,8 +40,7 @@
 
       {%- elsif block.settings.custom_video_url -%}
         {%- if block.settings.custom_video_url.type == 'youtube' -%}
-          <div data-type="youtube" class="video-item" {{ block.shopify_attributes }}>
-            {% comment %} src="https://www.youtube.com/embed/{{ block.settings.custom_video_url.id }}?controls=0&modestbranding=1&rel=0&autoplay=1&mute=1&loop={% if section.settings.video_loop_flag %}1{% else %}0{% endif %}&playlist={{ block.settings.custom_video_url.id }}" {% endcomment %}
+          <div data-type="youtube" class="video-item">
             <iframe
               style="height:{{ section.settings.video_height }}rem"
               src="https://www.youtube.com/embed/{{ block.settings.custom_video_url.id }}?controls=0&rel=0&autoplay=1&mute=1&iv_load_policy=3&loop={% if section.settings.video_loop_flag %}1{% else %}0{% endif %}&playlist={{ block.settings.custom_video_url.id }}"
@@ -53,98 +53,28 @@
     {%- endfor -%}
   </div>
 </custom-video-grid>
-<script src="{{'custom-video-grid.js' | asset_url}}" defer="defer"></script>
+</div>
 <style>
-  .heading-{{section.settings.header_size}}{
-    font-size: {{section.settings.header_size}};
-  }
-
+    .heading-{{section.settings.header_size}}{
+      font-size: {{section.settings.header_size}};
+    }
   .video-container {
-    display: grid;
-    grid-template-columns: repeat({{section.settings.video_columns}}, 1fr);
-    gap: 12px;
-    width: calc(100% - 9rem);
-    justify-self: center;
+    grid-template-columns: repeat({{ section.settings.video_columns }}, 1fr);
   }
-     custom-video-grid .heading{
-        margin: auto 4.5rem;
-    }
-  @media (max-width:768px){
+
+    @media screen and (max-width:426px) {
   .video-container {
-    width: calc(100% - 3rem);
+    grid-template-columns: repeat({% if section.settings.single_view_grid_flag %}1{% else %}{{ section.settings.video_columns }}{% endif %}, 1fr) !important  ;
+  }
     }
-    custom-video-grid .heading{
-        margin: auto 1.5rem;
+
+    .video-container video,
+    .video-container iframe {
+      object-fit:{% if section.settings.video_columns > 1 %} cover !important {%- else -%}fill !important {% endif %} ;
+      max-height:{{section.settings.video_height}}rem;
     }
-  }
 
-  .video-container video,
-  .video-container iframe {
-    width: 100%;
-    max-height: {{section.settings.video_height}}rem;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .video-item {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .thumbnail_overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .thumbnail_overlay img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: {{section.settings.video_height}}rem;
-    object-fit: cover;
-    z-index: 1;
-  }
-
-  .thumbnail_overlay span {
-    position: relative;
-    z-index: 3;
-    padding: 1rem;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-  }
-
-  .thumbnail_overlay span svg {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .play_button {
-    display: flex;
-  }
-
-  .pause_button {
-    display: none;
-  }
-
-  .video-item.is-playing .thumbnail_overlay img {
-    display: none;
-  }
-
-  .video-item.is-playing .play_button {
-    display: none;
-  }
-
-  .video-item.is-playing .pause_button {
-    display: flex;
-  }
+    .thumbnail_overlay img {
+      height: {{section.settings.video_height}}rem;
+    }
 </style>

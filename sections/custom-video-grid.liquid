@@ -1,5 +1,6 @@
 {%- render 'custom-video-grid', section: section -%}
-
+<script src="{{'custom-video-grid.js' | asset_url}}" defer="defer"></script>
+{{ 'custom-video-grid.css' | asset_url | stylesheet_tag }}
 {% schema %}
 {
   "name": "Custom Video Grid",
@@ -65,7 +66,17 @@
       "type": "checkbox",
       "label": "Video Loop",
       "id": "video_loop_flag"
-    }
+    },
+    {
+      "type": "checkbox",
+      "label": "Video Controller",
+      "id": "video_control_flag"
+    },
+    {
+      "type": "checkbox",
+      "label": "Single in Mobile View",
+      "id": "single_view_grid_flag"
+    },
   ],
   "blocks": [
     {
@@ -119,9 +130,9 @@
           "default": 1.0
         },
         {
-          "type": "header",
-          "content": "Add On",
-          "info": "Add thumbnails , alternative text"
+          "type": "checkbox",
+          "id": "is_muted_flag",
+          "label": "Mute"
         },
         {
           "type": "image_picker",

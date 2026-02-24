@@ -4,7 +4,6 @@ class CustomVideoGrid extends HTMLElement {
   }
 
   connectedCallback() {
-
     const videoItems = this.querySelectorAll(".video-item");
     videoItems.forEach((item) => {
       const video = item.querySelector("video");

@@ -485,22 +485,6 @@
         "padding_bottom": 36
       }
     },
-    "video_pJ7NKf": {
-      "type": "video",
-      "name": "t:sections.video.presets.name",
-      "settings": {
-        "heading": "Video",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "cover_image": "shopify://shop_images/image_7.png",
-        "description": "Video alt text",
-        "full_width": true,
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "custom_video_4zJpTr": {
       "type": "custom-video",
       "disabled": true,
@@ -510,51 +494,11 @@
         "header_size": "xx-large",
         "video_loop_flag": true,
         "custom_video": "shopify://files/videos/LindsdayGDNY.mp4",
-        "play_speed": 1,
+        "play_speed": 4,
         "play_pause_action": "play",
         "custom_video_url": "https://youtu.be/aegYT3QzKK0?si=0jAh9pWEmSwjgds6",
-        "video_height": 30,
+        "video_height": 100,
         "video_alt_thumbnail": ""
-      }
-    },
-    "custom_video_grid_8UUBqH": {
-      "type": "custom-video-grid",
-      "blocks": {
-        "video_Gq7WQa": {
-          "type": "video",
-          "settings": {
-            "custom_video": "shopify://files/videos/LindsdayGDNY.mp4",
-            "play_pause_action": "play",
-            "play_speed": 1,
-            "custom_video_url": "",
-            "video_height": 30,
-            "video_alt_thumbnail": ""
-          }
-        },
-        "video_cyc97f": {
-          "type": "video",
-          "settings": {
-            "custom_video": "shopify://files/videos/LindsdayGDNY.mp4",
-            "play_pause_action": "play",
-            "play_speed": 1,
-            "custom_video_url": "",
-            "video_height": 30,
-            "video_alt_thumbnail": ""
-          }
-        }
-      },
-      "block_order": [
-        "video_Gq7WQa",
-        "video_cyc97f"
-      ],
-      "custom_css": [
-        ".video-container {display: grid; grid-template-columns: repeat(2, 2fr);}"
-      ],
-      "name": "Custom Video Grid",
-      "settings": {
-        "video_section_heading": "",
-        "header_size": "medium",
-        "video_loop_flag": false
       }
     },
     "custom_video_grid_XyWXzy": {
@@ -566,7 +510,6 @@
             "play_pause_action": "play",
             "play_speed": 1,
             "custom_video_url": "https://youtu.be/3i1OB6wKYms?si=aZQQKvyKPCHT7dFZ",
-            "video_height": 35,
             "video_thumbnail": "shopify://shop_images/image_16_1.png",
             "video_alt_thumbnail": "Alternate Text"
           }
@@ -576,9 +519,8 @@
           "settings": {
             "custom_video": "shopify://files/videos/LindsdayGDNY.mp4",
             "play_pause_action": "play",
-            "play_speed": 4,
+            "play_speed": 1,
             "custom_video_url": "https://youtu.be/3i1OB6wKYms?si=aZQQKvyKPCHT7dFZ",
-            "video_height": 35,
             "video_thumbnail": "shopify://shop_images/image_16_1.png",
             "video_alt_thumbnail": "Alternate Text"
           }
@@ -589,7 +531,6 @@
             "play_pause_action": "play",
             "play_speed": 3,
             "custom_video_url": "https://youtu.be/3i1OB6wKYms?si=aZQQKvyKPCHT7dFZ",
-            "video_height": 35,
             "video_thumbnail": "shopify://shop_images/image_16_1.png",
             "video_alt_thumbnail": "Alternate Text"
           }
@@ -600,7 +541,6 @@
             "play_pause_action": "play",
             "play_speed": 4,
             "custom_video_url": "https://youtu.be/3i1OB6wKYms?si=aZQQKvyKPCHT7dFZ",
-            "video_height": 35,
             "video_thumbnail": "shopify://shop_images/image_16_1.png",
             "video_alt_thumbnail": "Alternate Text"
           }
@@ -612,13 +552,13 @@
         "video_aLgima",
         "video_TU4rCT"
       ],
-      "custom_css": [
-        ".video-container {display: grid; grid-template-columns: repeat(3, 2fr); gap: 12px;}"
-      ],
+      "custom_css": [],
       "name": "Custom Video Grid",
       "settings": {
         "video_section_heading": "Explore",
-        "header_size": "xxx-large",
+        "header_size": "xx-large",
+        "video_height": 30,
+        "video_columns": 2,
         "video_loop_flag": true
       }
     }
@@ -633,9 +573,7 @@
     "image_with_text_EYWqne",
     "collapsible_content_MAfD6R",
     "multicolumn_99GB8W",
-    "video_pJ7NKf",
     "custom_video_4zJpTr",
-    "custom_video_grid_8UUBqH",
     "custom_video_grid_XyWXzy"
   ]
 }

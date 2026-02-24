@@ -42,6 +42,26 @@
       "default": "medium"
     },
     {
+      "type": "range",
+      "label": "Video Height",
+      "id": "video_height",
+      "min": 27,
+      "max": 100,
+      "step": 1,
+      "unit": "rem",
+      "default": 27
+    },
+    {
+      "type": "range",
+      "label": "Video Columns",
+      "id": "video_columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "unit": "col",
+      "default": 1
+    },
+    {
       "type": "checkbox",
       "label": "Video Loop",
       "id": "video_loop_flag"
@@ -52,6 +72,17 @@
       "name": "Video",
       "type": "video",
       "settings": [
+        {
+          "type": "header",
+          "content": "Embedded Video from URL",
+          "info": "Add url from youtube"
+        },
+        {
+          "type": "video_url",
+          "id": "custom_video_url",
+          "label": "Video",
+          "accept": ["youtube"]
+        },
         {
           "type": "header",
           "content": "Video Via Shopify"
@@ -89,25 +120,8 @@
         },
         {
           "type": "header",
-          "content": "Embedded Video from URL",
-          "info": "Add url from youtube"
-        },
-        {
-          "type": "video_url",
-          "id": "custom_video_url",
-          "label": "Video",
-          "accept": ["youtube"]
-        },
-
-        {
-          "type": "range",
-          "label": "Video Height",
-          "id": "video_height",
-          "min": 30,
-          "max": 100,
-          "step": 5,
-          "unit": "rem",
-          "default": 30
+          "content": "Add On",
+          "info": "Add thumbnails , alternative text"
         },
         {
           "type": "image_picker",

@@ -1,0 +1,80 @@
+<custom-video-grid>
+    <div class="section-title">{{ section.settings.video_section_heading }}</div>
+  <div class="video-container">
+    {%- for block in section.blocks -%}
+
+      {%- if block.settings.custom_video -%}
+        <div 
+          class="video-item"
+          data-speed="{{ block.settings.play_speed | default: 1 }}"
+          data-action="{{ block.settings.play_pause_action }}"
+          {{ block.shopify_attributes }}
+        >
+          {{
+            block.settings.custom_video
+            | video_tag:
+              image_size: '1024x1024',
+              loop: section.settings.video_loop_flag,
+              controls: false,
+              autoplay: true,
+              muted: true,
+              playsinline: true
+          }}
+        </div>
+
+      {%- elsif block.settings.custom_video_url -%}
+        {%- if block.settings.custom_video_url.type == 'youtube' -%}
+          <div class="video-item" {{ block.shopify_attributes }}>
+            <iframe
+              style="height:{{ block.settings.video_height }}rem"
+              src="https://www.youtube.com/embed/{{ block.settings.custom_video_url.id }}?controls=0&modestbranding=1&rel=0&autoplay=1&mute=1&loop={% if section.settings.video_loop_flag %}1{% else %}0{% endif %}&playlist={{ block.settings.custom_video_url.id }}"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
+    {%- endfor -%}
+  </div>
+</custom-video-grid>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const videoItems = document.querySelectorAll('.video-item');
+
+  videoItems.forEach(item => {
+    const video = item.querySelector('video');
+    if (!video) return;
+
+    const speed = parseFloat(item.dataset.speed) || 1;
+    const action = item.dataset.action;
+
+    video.defaultPlaybackRate = 1;
+    video.playbackRate = speed;
+    if (action === "play") {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+});
+</script>
+
+<style>
+  .heading-{{ section.settings.header_size }} {
+    font-size: {{ section.settings.header_size }};
+  }
+
+  .video-container {
+    display: grid;
+    gap: 20px;
+  }
+
+  .video-container video,
+  .video-container iframe {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

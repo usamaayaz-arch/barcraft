@@ -1,0 +1,131 @@
+{%- render 'custom-video-grid', section: section -%}
+
+{% schema %}
+{
+  "name": "Custom Video Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "video_section_heading",
+      "label": "Header"
+    },
+    {
+      "type": "select",
+      "id": "header_size",
+      "label": "Header size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "X large"
+        },
+        {
+          "value": "xx-large",
+          "label": "XX large"
+        },
+        {
+          "value": "xxx-large",
+          "label": "XXX large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "label": "Video Loop",
+      "id": "video_loop_flag"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Video",
+      "type": "video",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Video Via Shopify"
+        },
+        {
+          "type": "video",
+          "id": "custom_video",
+          "label": "Video"
+        },
+        {
+          "type": "select",
+          "id": "play_pause_action",
+          "label": "Play/Pause ▶",
+          "options": [
+            {
+              "value": "pause",
+              "label": "Pause"
+            },
+            {
+              "value": "play",
+              "label": "Play"
+            }
+          ],
+          "default": "play"
+        },
+        {
+          "type": "range",
+          "label": "Play Speed 👟",
+          "id": "play_speed",
+          "min": 1.0,
+          "max": 4.0,
+          "step": 1.0,
+          "unit": "t",
+          "default": 1.0
+        },
+        {
+          "type": "header",
+          "content": "Embedded Video from URL",
+          "info": "Add url from youtube"
+        },
+        {
+          "type": "video_url",
+          "id": "custom_video_url",
+          "label": "Video",
+          "accept": ["youtube"]
+        },
+
+        {
+          "type": "range",
+          "label": "Video Height",
+          "id": "video_height",
+          "min": 30,
+          "max": 100,
+          "step": 5,
+          "unit": "rem",
+          "default": 30
+        },
+        {
+          "type": "image_picker",
+          "id": "video_thumbnail",
+          "label": "Thumbnail"
+        },
+        {
+          "type": "text",
+          "id": "video_alt_thumbnail",
+          "label": "Video Alternate Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Video Grid"
+    }
+  ]
+}
+{% endschema %}

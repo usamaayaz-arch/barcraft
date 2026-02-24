@@ -5,7 +5,7 @@
   "name": "Custom Video",
   "settings": [
     {
-      "type": "richtext",
+      "type": "text",
       "id": "video_section_heading",
       "label": "Header"
     },
@@ -14,10 +14,6 @@
       "id": "header_size",
       "label": "Header size",
       "options": [
-        {
-          "value": "x-small",
-          "label": "X-small"
-        },
         {
           "value": "small",
           "label": "Small"
@@ -32,11 +28,15 @@
         },
         {
           "value": "x-large",
-          "label": "X-large"
+          "label": "X large"
         },
         {
           "value": "xx-large",
-          "label": "XX-large"
+          "label": "XX large"
+        },
+        {
+          "value": "xxx-large",
+          "label": "XXX large"
         }
       ],
       "default": "medium"
@@ -46,6 +46,7 @@
       "label": "Video Loop",
       "id": "video_loop_flag"
     },
+    
     {
       "type": "header",
       "content": "Video Via Shopify"
@@ -54,6 +55,32 @@
       "type": "video",
       "id": "custom_video",
       "label": "Video"
+    },
+    {
+      "type": "range",
+      "label": "Play Speed 👟",
+      "id": "play_speed",
+      "min": 1.0,
+      "max": 4.0,
+      "step": 1.0,
+      "unit": "t",
+      "default": 1.0
+    },
+    {
+      "type": "select",
+      "id": "play_pause_action",
+      "label": "Play/Pause ▶",
+      "options": [
+        {
+          "value": "pause",
+          "label": "Pause"
+        },
+        {
+          "value": "play",
+          "label": "Play"
+        }
+      ],
+      "default": "play"
     },
     {
       "type": "header",
@@ -65,6 +92,17 @@
       "id": "custom_video_url",
       "label": "Video",
       "accept": ["youtube"]
+    },
+    
+    {
+      "type": "range",
+      "label": "Video Height",
+      "id": "video_height",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "unit": "rem",
+      "default": 30
     },
     {
       "type": "image_picker",
